@@ -83,8 +83,15 @@ export const users: CreditUser[] = [
     sections: ["staff"],
   },
   {
+    name: "aidn",
+    roles: ["developer"],
+    tags: ["Liberator"],
+    avatar: "/media/pfp/aidn.webp",
+    sections: ["staff"],
+  },
+  {
     name: "Seopung",
-    roles: ["moderator", "developer"],
+    roles: ["developer"],
     avatar: "/media/pfp/seopung.webp",
     sections: ["staff"],
   },
