@@ -21,44 +21,6 @@ export const metadata: Metadata = pageMetadata({
 
 const faqs: FaqItem[] = [
   {
-    id: "ubisoft-epic-account",
-    q: "I do not own R6S on Steam. Can I use my Ubisoft or Epic Games account?",
-    method: "launcher",
-    a: (
-      <>
-        <p>
-          No. The Launcher uses the Steam depot service to download old game
-          seasons. This requires a valid Steam account with a registered license
-          for R6S.
-        </p>
-        <p>
-          <strong>R6S is free on Steam</strong> — add it to your Steam library
-          on its <ExternalLink href={STEAM_STORE_URL}>store page</ExternalLink>{" "}
-          and the Launcher will work.
-        </p>
-      </>
-    ),
-  },
-  {
-    id: "ubisoft-epic-account",
-    q: "I do not own R6S on Steam. Can I use my Ubisoft or Epic Games account?",
-    method: "downloader",
-    a: (
-      <>
-        <p>
-          No. The downloader uses the Steam depot service to download old game
-          seasons. This requires a valid Steam account with a registered license
-          for R6S.
-        </p>
-        <p>
-          <strong>R6S is free on Steam</strong> — add it to your Steam library
-          on its <ExternalLink href={STEAM_STORE_URL}>store page</ExternalLink>{" "}
-          and the downloader will work.
-        </p>
-      </>
-    ),
-  },
-  {
     id: "trojan-malware",
     q: "Is the Launcher a trojan or malware?",
     method: "launcher",
@@ -85,38 +47,6 @@ const faqs: FaqItem[] = [
     ),
   },
   {
-    id: "browser-block",
-    q: "My browser is blocking the download. What should I do?",
-    a: (
-      <>
-        <p>
-          Some browsers block downloads that contain executable files. To get
-          around this, follow the steps for your browser.
-        </p>
-        <ul>
-          <li>
-            <strong>Chrome</strong> — Open <code>chrome://downloads</code>,
-            click the three dots next to the blocked entry and select{" "}
-            <strong>Keep dangerous file</strong>
-          </li>
-          <li>
-            <strong>Edge</strong> — Click the three dots next to the blocked
-            item and select <strong>Keep</strong>. If another warning follows,
-            click <strong>Show more</strong> and press{" "}
-            <strong>Keep anyway</strong>
-          </li>
-          <li>
-            <strong>Firefox</strong> — Open the downloads panel in the toolbar,
-            click the blocked download and press <strong>Allow Download</strong>
-          </li>
-        </ul>
-        <Note className="my-3">
-          Only download files from the official repositories.
-        </Note>
-      </>
-    ),
-  },
-  {
     id: "antivirus-exclusion",
     q: "How do I add an antivirus exclusion?",
     platform: "windows",
@@ -124,16 +54,68 @@ const faqs: FaqItem[] = [
     a: (
       <>
         <p>
-          Some antivirus programs flag game files as false positives. The fix is
-          to add your library folder as an exclusion.
+          Some antivirus programs flag game files and <code>Liberator.exe</code>{" "}
+          as false positives. The fix is to add the Launcher folder and your
+          library folders as exclusions.
         </p>
-        <ExclusionSteps folder="your library folder">
+        <ExclusionSteps
+          folder={
+            <>
+              the Launcher folder (<code>%LOCALAPPDATA%\ThrowbackLauncher</code>{" "}
+              by default) and your library folders
+            </>
+          }
+        >
           <li>Restart your computer and try launching the game again</li>
         </ExclusionSteps>
         <Note className="my-3">
           Use <strong>Verify</strong> in the <strong>Manage</strong> tab of the
           season to restore removed game files.
         </Note>
+      </>
+    ),
+  },
+  {
+    id: "ubisoft-epic-account",
+    q: "I do not own R6S on Steam. Can I use my Ubisoft or Epic Games account?",
+    method: "launcher",
+    a: (
+      <>
+        <p>
+          No. The Launcher uses the Steam depot service to download old game
+          seasons. This requires a valid Steam account with a registered license
+          for R6S.
+        </p>
+        <p>
+          <strong>R6S is free on Steam</strong> — add it to your Steam library
+          on its <ExternalLink href={STEAM_STORE_URL}>store page</ExternalLink>{" "}
+          and the Launcher will work.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "liberator-missing",
+    q: "Why is Liberator.exe missing?",
+    platform: "windows",
+    method: "launcher",
+    a: (
+      <>
+        <p>
+          Windows Security may remove <code>Liberator.exe</code> from the
+          Launcher folder unless the folder is excluded.
+        </p>
+        <ol>
+          <li>
+            Add the <a href="#antivirus-exclusion">antivirus exclusion</a>
+          </li>
+          <li>
+            Open <strong>Windows Security</strong> &gt;{" "}
+            <strong>Protection history</strong>, select the{" "}
+            <code>Liberator.exe</code> entry and click <strong>Restore</strong>
+          </li>
+          <li>Open the Liberator page again</li>
+        </ol>
       </>
     ),
   },
@@ -155,6 +137,25 @@ const faqs: FaqItem[] = [
           Use <strong>Verify the game</strong> in the downloader to restore
           removed game files.
         </Note>
+      </>
+    ),
+  },
+  {
+    id: "ubisoft-epic-account",
+    q: "I do not own R6S on Steam. Can I use my Ubisoft or Epic Games account?",
+    method: "downloader",
+    a: (
+      <>
+        <p>
+          No. The downloader uses the Steam depot service to download old game
+          seasons. This requires a valid Steam account with a registered license
+          for R6S.
+        </p>
+        <p>
+          <strong>R6S is free on Steam</strong> — add it to your Steam library
+          on its <ExternalLink href={STEAM_STORE_URL}>store page</ExternalLink>{" "}
+          and the downloader will work.
+        </p>
       </>
     ),
   },
@@ -360,7 +361,6 @@ const faqs: FaqItem[] = [
   {
     id: "proton-version",
     q: "Which Proton version does the Launcher use?",
-    method: "launcher",
     platform: "linux",
     a: (
       <p>

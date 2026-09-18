@@ -7,6 +7,7 @@ import { ContentImage } from "@/components/ContentImage";
 import { ContentVideo } from "@/components/ContentVideo";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ExclusionSteps } from "@/components/ExclusionSteps";
+import { BrowserBlockSteps } from "@/components/BrowserBlockSteps";
 import { MethodSwitch } from "@/components/MethodSwitch";
 import { site } from "@/config/site";
 import { OnLinux, OnWindows } from "@/components/OnPlatform";
@@ -22,45 +23,10 @@ function LauncherSteps() {
             Download <code>Installer.exe</code> from the{" "}
             <ExternalLink href={site.launcherDownloadUrl}>
               latest release
-            </ExternalLink>{" "}
-            and run it. You may run into the following issues.
+            </ExternalLink>
+            . If your browser blocks the download, keep the file:
           </p>
-          <Note variant="error" className="my-3">
-            <a href="#browser-block">Follow these steps</a> if your browser
-            blocks the download.
-          </Note>
-          <ul>
-            <li>
-              <strong>Windows Security removed the installer</strong> — allow it
-              under <strong>Protection history</strong> and run it again
-            </li>
-            <li>
-              <strong>Smart App Control blocked it</strong> — open{" "}
-              <strong>Windows Security</strong> &gt;{" "}
-              <strong>App &amp; browser control</strong> &gt;{" "}
-              <strong>Smart App Control</strong> and select <strong>Off</strong>
-            </li>
-            <li>
-              <strong>Windows protected your PC</strong> — click{" "}
-              <strong>More info</strong> and then <strong>Run anyway</strong>
-            </li>
-          </ul>
-          <div className="flex flex-wrap gap-3">
-            <ContentImage
-              src="/media/others/smartscreen-blocked.webp"
-              alt="Windows SmartScreen blocking the installer"
-              width={530}
-              height={497}
-              className="max-w-[300px] rounded-md border border-border"
-            />
-            <ContentImage
-              src="/media/others/smartscreen-run-anyway.webp"
-              alt="SmartScreen after clicking More info, showing Run anyway"
-              width={530}
-              height={497}
-              className="max-w-[300px] rounded-md border border-border"
-            />
-          </div>
+          <BrowserBlockSteps />
         </OnWindows>
         <OnLinux>
           <ol>
@@ -80,11 +46,59 @@ function LauncherSteps() {
       </Prose>
 
       <OnWindows>
+        <SectionTitle>Antivirus</SectionTitle>
+        <Prose>
+          <p>
+            Windows Security may block the installer because it is not signed by
+            a verified developer. Depending on the message:
+          </p>
+          <ul>
+            <li>
+              <strong>Windows Security removed the installer</strong> — open{" "}
+              <strong>Windows Security</strong> &gt;{" "}
+              <strong>Protection history</strong>, allow the entry and run the
+              installer again
+            </li>
+            <li>
+              <strong>Smart App Control blocked it</strong> — open{" "}
+              <strong>Windows Security</strong> &gt;{" "}
+              <strong>App &amp; browser control</strong> &gt;{" "}
+              <strong>Smart App Control</strong> and select <strong>Off</strong>
+            </li>
+            <li>
+              <strong>Windows protected your PC</strong> — click{" "}
+              <strong>More info</strong> and then <strong>Run anyway</strong>
+            </li>
+          </ul>
+          <div className="flex flex-wrap gap-3">
+            <ContentImage
+              src="/media/others/smartscreen-blocked.webp"
+              alt="Windows SmartScreen blocking the installer"
+              width={530}
+              height={497}
+              className="max-w-[300px] rounded-md"
+            />
+            <ContentImage
+              src="/media/others/smartscreen-run-anyway.webp"
+              alt="SmartScreen after clicking More info, showing Run anyway"
+              width={530}
+              height={497}
+              className="max-w-[300px] rounded-md"
+            />
+          </div>
+          <p>
+            If you use a different antivirus, allow the installer there. After
+            the installation, add the{" "}
+            <a href="#antivirus-exclusion">antivirus exclusion</a> so game files
+            and <code>Liberator.exe</code> are not removed later.
+          </p>
+        </Prose>
+
         <SectionTitle>Installation</SectionTitle>
         <Prose>
           <p>
             Press <strong>Install</strong> and wait until the installation is
-            done.
+            done, then press <strong>Launch</strong>.
           </p>
           <ContentImage
             src="/media/others/installer.webp"
@@ -149,7 +163,9 @@ function JvavSteps() {
             <ExternalLink href={site.jvavDownloaderUrl}>
               latest release
             </ExternalLink>{" "}
-            and place it inside your R6S folder
+            and place it inside your R6S folder. If your browser blocks the
+            download, keep the file:
+            <BrowserBlockSteps />
           </li>
           <li>
             Run the <code>.bat</code> file — it will automatically download
