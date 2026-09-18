@@ -14,7 +14,7 @@ export function PlatformSwitch() {
   const refs = useRef<Partial<Record<Platform, HTMLButtonElement | null>>>({});
 
   function onKeyDown(event: React.KeyboardEvent) {
-    const step = rovingStep(event, true);
+    const step = rovingStep(event);
     if (!step) return;
     const index = PLATFORMS.findIndex((entry) => entry.id === platform);
     if (index === -1) return;

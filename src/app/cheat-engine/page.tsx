@@ -6,6 +6,7 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { LinkButton } from "@/components/LinkButton";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { OnLinux, OnWindows } from "@/components/OnPlatform";
+import { heading, panel } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
 import { withBasePath } from "@/lib/asset";
 import { FAQ_PAGES } from "@/config/faq";
@@ -135,13 +136,8 @@ export default function CheatEngine() {
       <SectionTitle>Cheat Tables</SectionTitle>
       <div className="mb-8 flex flex-col gap-4">
         {tables.map((table) => (
-          <div
-            key={table.file}
-            className="rounded-lg border border-border bg-surface p-5"
-          >
-            <h3 className="font-display text-[1.05rem] font-bold text-text">
-              {table.name}
-            </h3>
+          <div key={table.file} className={`${panel} p-5`}>
+            <h3 className={heading}>{table.name}</h3>
             <p className="mb-3 mt-2 text-ui leading-[1.5] text-text-muted">
               {table.description}
             </p>

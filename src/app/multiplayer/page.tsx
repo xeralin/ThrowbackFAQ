@@ -75,9 +75,8 @@ export default function Multiplayer() {
               for Windows
             </li>
             <li>
-              Open the Launcher Settings, select the downloaded{" "}
-              <code>.exe</code> under <strong>Radmin VPN</strong>, and press{" "}
-              <strong>Run</strong>
+              Open the Launcher Settings and select the downloaded{" "}
+              <code>.exe</code> under <strong>Radmin VPN</strong>
             </li>
           </OnLinux>
           <li>

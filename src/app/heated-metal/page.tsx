@@ -76,11 +76,11 @@ export default function HeatedMetal() {
       <SectionTitle flush>Support</SectionTitle>
       <Prose>
         <p>
-          Heated Metal is an SDK (Software Development Kit) for R6S by{" "}
+          Heated Metal is a full SDK (Software Development Kit) for R6S by{" "}
           <ExternalLink href={site.heatedMetalRepoUrl}>
             DataCluster0
-          </ExternalLink>
-          .
+          </ExternalLink>{" "}
+          that adds extended capabilities to specific old game builds.
         </p>
         <SeasonTable rows={heatedMetalSeasons} showVersion />
       </Prose>
@@ -136,11 +136,11 @@ export default function HeatedMetal() {
               </li>
               <li>
                 Restart the Launcher, then pick it under <strong>Proton</strong>{" "}
-                in the Launcher Settings
+                on the season page
               </li>
             </ol>
           </OnLinux>
-          <Note className="my-3">
+          <Note>
             <strong>Y9S2 New Blood</strong> is only available on the{" "}
             <ExternalLink href={site.heatedMetalDiscordUrl}>
               Heated Metal Discord
@@ -165,7 +165,7 @@ export default function HeatedMetal() {
               Launch the game with <code>LaunchR6.bat</code>
             </li>
           </ol>
-          <Note className="my-3">
+          <Note>
             <strong>Y9S2 New Blood</strong> is only available on the{" "}
             <ExternalLink href={site.heatedMetalDiscordUrl}>
               Heated Metal Discord

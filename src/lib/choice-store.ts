@@ -2,8 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 
-export type ChoiceStore<T extends string> = {
-  get: () => T;
+type ChoiceStore<T extends string> = {
   set: (next: T, apply: (update: () => void) => void) => void;
   use: () => T;
 };
@@ -34,7 +33,6 @@ export function createChoiceStore<T extends string>(
   }
 
   return {
-    get: getSnapshot,
     set(next, apply) {
       if (cached === next) return;
       cached = next;

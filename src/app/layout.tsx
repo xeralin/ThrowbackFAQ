@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Rajdhani, Share_Tech_Mono, Barlow } from "next/font/google";
-import { baseMetadata } from "@/lib/metadata";
 import { site } from "@/config/site";
 import { AppShell } from "@/components/AppShell";
 import "./globals.css";
@@ -26,7 +25,24 @@ const body = Barlow({
   display: "swap",
 });
 
-export const metadata: Metadata = baseMetadata;
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: site.name,
+    template: `${site.name} | %s`,
+  },
+  description: site.description,
+  applicationName: site.name,
+  openGraph: {
+    type: "website",
+    url: "/",
+    images: [{ url: site.ogImage }],
+  },
+  twitter: {
+    card: "summary",
+    images: [{ url: site.ogImage }],
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: site.themeColor,

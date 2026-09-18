@@ -1,6 +1,6 @@
 type NavItem = { href: string; label: string };
 type NavSection = { label: string; items: NavItem[] };
-type Crumb = { label: string; href: string };
+type Crumb = NavItem;
 
 export const navSections: NavSection[] = [
   {
@@ -42,9 +42,7 @@ export const allRoutes: string[] = navSections.flatMap((section) =>
 const HOME: Crumb = { label: "FAQ", href: "/" };
 
 const breadcrumbs: Record<string, Crumb[]> = Object.fromEntries(
-  navSections
-    .flatMap((s) => s.items)
-    .map((i) => [i.href, [HOME, { label: i.label, href: i.href }]]),
+  navSections.flatMap((s) => s.items).map((i) => [i.href, [HOME, i]]),
 );
 
 export function normalizePath(path: string): string {

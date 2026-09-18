@@ -1,16 +1,8 @@
-export function StrokeIcon({
-  d,
-  className = "size-4",
-  fill = "none",
-}: {
-  d: string;
-  className?: string;
-  fill?: string;
-}) {
+export function StrokeIcon({ d, className }: { d: string; className: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill={fill}
+      fill="none"
       stroke="currentColor"
       strokeWidth={2}
       strokeLinecap="round"

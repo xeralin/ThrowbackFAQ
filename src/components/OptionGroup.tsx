@@ -7,14 +7,9 @@ export type Option<T extends string> = {
   label: string;
 };
 
-export function rovingStep(
-  event: React.KeyboardEvent,
-  vertical: boolean,
-): number {
-  const forward =
-    event.key === "ArrowRight" || (vertical && event.key === "ArrowDown");
-  const backward =
-    event.key === "ArrowLeft" || (vertical && event.key === "ArrowUp");
+export function rovingStep(event: React.KeyboardEvent): number {
+  const forward = event.key === "ArrowRight" || event.key === "ArrowDown";
+  const backward = event.key === "ArrowLeft" || event.key === "ArrowUp";
   return forward ? 1 : backward ? -1 : 0;
 }
 
@@ -44,7 +39,7 @@ export function OptionGroup<T extends string>({
   }, [active, options]);
 
   function onKeyDown(event: React.KeyboardEvent) {
-    const step = rovingStep(event, true);
+    const step = rovingStep(event);
     if (!step) return;
     const index = options.findIndex((option) => option.id === active);
     if (index === -1) return;

@@ -3,7 +3,7 @@
     <source media="(prefers-color-scheme: dark)" srcset=".github/night.svg">
     <img alt="Throwback FAQ" src=".github/day.svg" height="42">
   </picture> <br>
-  Your guide to downloading, setting up and playing older Rainbow Six Siege seasons. Not affiliated with, endorsed by, or sponsored by Ubisoft.
+  Your guide to downloading, setting up, and playing older Rainbow Six Siege seasons. Not affiliated with, endorsed by, or sponsored by Ubisoft.
 </p>
 
 **Building**

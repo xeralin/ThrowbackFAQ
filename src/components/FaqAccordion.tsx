@@ -3,16 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import { StrokeIcon } from "@/components/StrokeIcon";
 import type { ReactNode } from "react";
-import { setMethod, useMethod } from "@/lib/method";
-import { usePlatform } from "@/lib/platform";
+import { setMethod, useMethod, type Method } from "@/lib/method";
+import { usePlatform, type Platform } from "@/lib/platform";
 
 export type FaqItem = {
   id: string;
   q: string;
   display?: ReactNode;
   a: ReactNode;
-  platform?: "windows" | "linux";
-  method?: "launcher" | "downloader";
+  platform?: Platform;
+  method?: Method;
 };
 
 function CopyIcon() {
@@ -62,10 +62,14 @@ function Item({ item }: { item: FaqItem }) {
 
   function copyLink() {
     const url = `${window.location.href.split("#")[0]}#${anchor}`;
-    navigator.clipboard.writeText(url).catch(() => {});
-    setCopied((tick) => tick + 1);
-    window.clearTimeout(copyTimer.current);
-    copyTimer.current = window.setTimeout(() => setCopied(0), 1400);
+    navigator.clipboard.writeText(url).then(
+      () => {
+        setCopied((tick) => tick + 1);
+        window.clearTimeout(copyTimer.current);
+        copyTimer.current = window.setTimeout(() => setCopied(0), 1400);
+      },
+      () => {},
+    );
   }
 
   useEffect(() => {

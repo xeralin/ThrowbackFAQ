@@ -26,15 +26,15 @@ export default function Liberator() {
       <FaqHero page="liberator" />
 
       <Note className="mb-6">
-        Users of{" "}
+        The Liberator for{" "}
         <ExternalLink href={site.jvavDownloaderUrl}>
           JVAV&apos;s Downloader
         </ExternalLink>{" "}
-        can download an older, unmaintained Liberator from{" "}
+        is available in{" "}
         <ExternalLink href={site.downloadsChannelUrl}>
           <code>#downloads</code>
         </ExternalLink>
-        .
+        , but this version is no longer maintained.
       </Note>
 
       <SectionTitle>How to Use It</SectionTitle>
@@ -46,8 +46,8 @@ export default function Liberator() {
             Liberator page
           </li>
           <li>
-            If you want to play Terrorist Hunt or the Outbreak event, make sure
-            you are on the <strong>blue team</strong>, then start the match
+            For any PvE mode, make sure all players are on the{" "}
+            <strong>blue team</strong>, then start the match
           </li>
         </ol>
       </Prose>
