@@ -7,7 +7,6 @@ import { ContentImage } from "@/components/ContentImage";
 import { ContentVideo } from "@/components/ContentVideo";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ExclusionSteps } from "@/components/ExclusionSteps";
-import { BrowserBlockSteps } from "@/components/BrowserBlockSteps";
 import { MethodSwitch } from "@/components/MethodSwitch";
 import { site } from "@/config/site";
 import { OnLinux, OnWindows } from "@/components/OnPlatform";
@@ -26,7 +25,24 @@ function LauncherSteps() {
             </ExternalLink>
             . If your browser blocks the download, keep the file:
           </p>
-          <BrowserBlockSteps />
+          <ul>
+            <li>
+              <strong>Chrome</strong> — Open <code>chrome://downloads</code>,
+              click the three dots next to the blocked entry and select{" "}
+              <strong>Keep dangerous file</strong>
+            </li>
+            <li>
+              <strong>Edge</strong> — Click the three dots next to the blocked
+              item and select <strong>Keep</strong>. If another warning follows,
+              click <strong>Show more</strong> and press{" "}
+              <strong>Keep anyway</strong>
+            </li>
+            <li>
+              <strong>Firefox</strong> — Open the downloads panel in the
+              toolbar, click the blocked download and press{" "}
+              <strong>Allow Download</strong>
+            </li>
+          </ul>
         </OnWindows>
         <OnLinux>
           <ol>
@@ -163,9 +179,7 @@ function JvavSteps() {
             <ExternalLink href={site.jvavDownloaderUrl}>
               latest release
             </ExternalLink>{" "}
-            and place it inside your R6S folder. If your browser blocks the
-            download, keep the file:
-            <BrowserBlockSteps />
+            and place it inside your R6S folder
           </li>
           <li>
             Run the <code>.bat</code> file — it will automatically download
