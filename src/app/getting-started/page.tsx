@@ -47,6 +47,39 @@ const faqs: FaqItem[] = [
     ),
   },
   {
+    id: "browser-block",
+    q: "My browser is blocking the download. What should I do?",
+    method: "downloader",
+    a: (
+      <>
+        <p>
+          Some browsers block downloads that contain executable files. To get
+          around this, follow the steps for your browser.
+        </p>
+        <ul>
+          <li>
+            <strong>Chrome</strong> — Open <code>chrome://downloads</code>,
+            click the three dots next to the blocked entry and select{" "}
+            <strong>Keep dangerous file</strong>
+          </li>
+          <li>
+            <strong>Edge</strong> — Click the three dots next to the blocked
+            item and select <strong>Keep</strong>. If another warning follows,
+            click <strong>Show more</strong> and press{" "}
+            <strong>Keep anyway</strong>
+          </li>
+          <li>
+            <strong>Firefox</strong> — Open the downloads panel in the toolbar,
+            click the blocked download and press <strong>Allow Download</strong>
+          </li>
+        </ul>
+        <Note className="my-3">
+          Only download files from the official repositories.
+        </Note>
+      </>
+    ),
+  },
+  {
     id: "antivirus-exclusion",
     q: "How do I add an antivirus exclusion?",
     platform: "windows",
