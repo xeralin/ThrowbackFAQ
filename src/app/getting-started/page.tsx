@@ -21,32 +21,6 @@ export const metadata: Metadata = pageMetadata({
 
 const faqs: FaqItem[] = [
   {
-    id: "trojan-malware",
-    q: "Is the Launcher a trojan or malware?",
-    method: "launcher",
-    a: (
-      <p>
-        No. Your antivirus may flag it because it is not signed by a verified
-        developer. If you have concerns, the source code is available in its{" "}
-        <ExternalLink href={site.launcherRepoUrl}>repository</ExternalLink> for
-        review.
-      </p>
-    ),
-  },
-  {
-    id: "trojan-malware",
-    q: "Is the downloader a trojan or malware?",
-    method: "downloader",
-    a: (
-      <p>
-        No. Your antivirus may flag it because it is not signed by a verified
-        developer. If you have concerns, the source code is available in its{" "}
-        <ExternalLink href={site.jvavRepoUrl}>repository</ExternalLink> for
-        review.
-      </p>
-    ),
-  },
-  {
     id: "browser-block",
     q: "My browser is blocking the download. What should I do?",
     method: "downloader",
@@ -77,6 +51,32 @@ const faqs: FaqItem[] = [
           Only download files from the official repositories.
         </Note>
       </>
+    ),
+  },
+  {
+    id: "trojan-malware",
+    q: "Is the Launcher a trojan or malware?",
+    method: "launcher",
+    a: (
+      <p>
+        No. Your antivirus may flag it because it is not signed by a verified
+        developer. If you have concerns, the source code is available in its{" "}
+        <ExternalLink href={site.launcherRepoUrl}>repository</ExternalLink> for
+        review.
+      </p>
+    ),
+  },
+  {
+    id: "trojan-malware",
+    q: "Is the downloader a trojan or malware?",
+    method: "downloader",
+    a: (
+      <p>
+        No. Your antivirus may flag it because it is not signed by a verified
+        developer. If you have concerns, the source code is available in its{" "}
+        <ExternalLink href={site.jvavRepoUrl}>repository</ExternalLink> for
+        review.
+      </p>
     ),
   },
   {
