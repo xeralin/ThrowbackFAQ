@@ -20,7 +20,7 @@ export function createChoiceStore<T extends string>(
     if (cached === null) {
       let stored: string | null = null;
       try {
-        stored = localStorage.getItem(storageKey);
+        stored = sessionStorage.getItem(storageKey);
       } catch {}
       cached = values.includes(stored as T) ? (stored as T) : fallback();
     }
@@ -37,7 +37,7 @@ export function createChoiceStore<T extends string>(
       if (cached === next) return;
       cached = next;
       try {
-        localStorage.setItem(storageKey, next);
+        sessionStorage.setItem(storageKey, next);
       } catch {}
       apply(() => listeners.forEach((listener) => listener()));
     },

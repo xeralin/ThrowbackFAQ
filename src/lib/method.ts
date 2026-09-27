@@ -13,7 +13,7 @@ if (
   new URLSearchParams(window.location.search).has("jvav")
 ) {
   try {
-    localStorage.setItem(STORAGE_KEY, "downloader");
+    sessionStorage.setItem(STORAGE_KEY, "downloader");
   } catch {}
 }
 
