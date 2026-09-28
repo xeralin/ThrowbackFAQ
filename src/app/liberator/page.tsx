@@ -20,18 +20,12 @@ const faqs: FaqItem[] = [
     id: "operators-locked",
     q: "Why are my operators locked?",
     a: (
-      <>
-        <p>
-          Operators stay locked until the Liberator has finished loading. Check
-          the status next to the <strong>Liberator</strong> switch on the
-          Liberator page in the Launcher and wait until it shows{" "}
-          <strong>Idle</strong> or <strong>Unlock All has been applied</strong>.
-        </p>
-        <p>
-          Unlock All does not support Y10S3 and later, so operators stay locked
-          in those seasons.
-        </p>
-      </>
+      <p>
+        Operators stay locked until the Liberator has finished loading. Check
+        the status next to the <strong>Liberator</strong> switch on the
+        Liberator page in the Launcher and wait until it shows{" "}
+        <strong>Idle</strong> or <strong>Unlock All has been applied</strong>.
+      </p>
     ),
   },
 ];
