@@ -47,14 +47,13 @@ const faqs: FaqItem[] = [
     a: (
       <p>
         No. Heated Metal changes the game itself, so everyone in a match needs
-        the same Heated Metal build. Your regular Throwback install stays
-        untouched.
+        the same Heated Metal build. Your Throwback install stays untouched.
       </p>
     ),
   },
   {
     id: "keep-both",
-    q: "Can I keep the normal season and Heated Metal at the same time?",
+    q: "Can I keep Throwback and Heated Metal installed at the same time?",
     method: "launcher",
     a: (
       <p>
@@ -98,7 +97,9 @@ export default function HeatedMetal() {
           <OnWindows>
             <li>The latest Visual C++ Redistributables</li>
           </OnWindows>
-          <li>Medium or above in-game textures on Y5S3 Shadow Legacy</li>
+          <OnDownloader>
+            <li>Medium or above in-game textures on Y5S3 Shadow Legacy</li>
+          </OnDownloader>
           <li>
             External overlays disabled, as they can stop the UI from rendering
           </li>
@@ -135,22 +136,11 @@ export default function HeatedMetal() {
                 <code>~/.local/share/ThrowbackLauncher/bin/proton</code>
               </li>
               <li>
-                Restart the Launcher, then pick it under <strong>Proton</strong>{" "}
-                in the <strong>Manage</strong> tab of the season
+                Pick it under <strong>Proton</strong> in the{" "}
+                <strong>Manage</strong> tab of the season
               </li>
             </ol>
           </OnLinux>
-          <Note>
-            <strong>Y9S2 New Blood</strong> is only available on the{" "}
-            <ExternalLink href={site.heatedMetalDiscordUrl}>
-              Heated Metal Discord
-            </ExternalLink>
-            . Download the <code>.7z</code> from{" "}
-            <ExternalLink href={site.indevReleasesUrl}>
-              <code>#indev-releases</code>
-            </ExternalLink>{" "}
-            first.
-          </Note>
         </OnLauncher>
         <OnDownloader>
           <ol>
@@ -162,21 +152,23 @@ export default function HeatedMetal() {
               Choose <strong>Download Heated Metal</strong> and pick a season
             </li>
             <li>
-              Launch the game with <code>LaunchR6.bat</code>
+              Launch the game with <code>RainbowSix.exe</code>
             </li>
           </ol>
-          <Note>
-            <strong>Y9S2 New Blood</strong> is only available on the{" "}
-            <ExternalLink href={site.heatedMetalDiscordUrl}>
-              Heated Metal Discord
-            </ExternalLink>
-            . Download the <code>.7z</code> from{" "}
-            <ExternalLink href={site.indevReleasesUrl}>
-              <code>#indev-releases</code>
-            </ExternalLink>{" "}
-            first and copy the files into your game folder.
-          </Note>
         </OnDownloader>
+        <Note>
+          <strong>Y9S2 New Blood</strong> is only available on the{" "}
+          <ExternalLink href={site.heatedMetalDiscordUrl}>
+            Heated Metal Discord
+          </ExternalLink>
+          . Download the <code>.7z</code> from{" "}
+          <ExternalLink href={site.indevReleasesUrl}>
+            <code>#indev-releases</code>
+          </ExternalLink>{" "}
+          first
+          <OnDownloader> and copy the files into your game folder</OnDownloader>
+          .
+        </Note>
       </Prose>
 
       <SectionTitle>Usage</SectionTitle>

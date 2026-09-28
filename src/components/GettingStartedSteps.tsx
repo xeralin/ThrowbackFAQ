@@ -28,7 +28,7 @@ function LauncherSteps() {
           <ol>
             <li>
               Search for <strong>Virus & threat protection</strong> in the
-              Windows start menu
+              Windows Start menu
             </li>
             <li>
               Click <strong>Manage settings</strong> under{" "}
@@ -174,8 +174,8 @@ function JvavSteps() {
             Log in to your Steam account and wait for the download to complete
           </li>
           <li>
-            Navigate to your R6S folder &gt; <code>Downloads</code> &gt;{" "}
-            <code>Season</code>
+            Navigate to your R6S folder &gt; <code>Downloads</code> &gt; your
+            season folder
           </li>
           <li>
             Run <code>LaunchR6.bat</code> to launch the game

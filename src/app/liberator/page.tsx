@@ -4,13 +4,8 @@ import { FaqHero } from "@/components/FaqHero";
 import { ExternalLink } from "@/components/ExternalLink";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Prose } from "@/components/Prose";
-import { SeasonTable } from "@/components/SeasonTable";
-import {
-  FULL_SUPPORT,
-  FULL_SUPPORT_EVENTS,
-  UNLOCK_ALL_SEASONS,
-  yearPairs,
-} from "@/config/liberator-builds";
+import { SupportedSeasons } from "@/components/SupportedSeasons";
+import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { pageMetadata } from "@/lib/metadata";
 import { FAQ_PAGES } from "@/config/faq";
 import { site } from "@/config/site";
@@ -19,6 +14,27 @@ export const metadata: Metadata = pageMetadata({
   ...FAQ_PAGES.liberator,
   path: "/liberator",
 });
+
+const faqs: FaqItem[] = [
+  {
+    id: "operators-locked",
+    q: "Why are my operators locked?",
+    a: (
+      <>
+        <p>
+          Operators stay locked until the Liberator has finished loading. Check
+          the status next to the <strong>Liberator</strong> switch on the
+          Liberator page in the Launcher and wait until it shows{" "}
+          <strong>Idle</strong> or <strong>Unlock All has been applied</strong>.
+        </p>
+        <p>
+          Unlock All does not support Y10S3 and later, so operators stay locked
+          in those seasons.
+        </p>
+      </>
+    ),
+  },
+];
 
 export default function Liberator() {
   return (
@@ -52,16 +68,10 @@ export default function Liberator() {
         </ol>
       </Prose>
 
-      <SectionTitle>Support</SectionTitle>
-      <Prose>
-        <div className="flex flex-wrap items-start gap-x-4">
-          <SeasonTable rows={FULL_SUPPORT} />
-          <SeasonTable rows={FULL_SUPPORT_EVENTS} showEvent />
-          {yearPairs(UNLOCK_ALL_SEASONS).map((rows) => (
-            <SeasonTable key={rows[0].build} rows={rows} />
-          ))}
-        </div>
-      </Prose>
+      <SupportedSeasons />
+
+      <SectionTitle>Frequently Asked Questions</SectionTitle>
+      <FaqAccordion items={faqs} />
     </>
   );
 }

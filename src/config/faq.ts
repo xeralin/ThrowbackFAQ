@@ -8,14 +8,13 @@ type FaqPage = {
 export const FAQ_PAGES = {
   gettingStarted: {
     title: "Getting Started",
-    description: "How to get set up and download your first season.",
+    description: "How to set up and download Operation Throwback.",
     tag: "Support & Troubleshooting",
     corner: "SETUP",
   },
   multiplayer: {
     title: "Multiplayer",
-    description:
-      "How to set up and play with others using Radmin VPN or ZeroTier.",
+    description: "How to set up and play with others using Radmin VPN.",
     tag: "Support & Troubleshooting",
     corner: "MP",
   },

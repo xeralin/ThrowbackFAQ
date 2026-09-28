@@ -38,8 +38,8 @@ const faqs: FaqItem[] = [
           </li>
           <li>
             <strong>Edge</strong> — Click the three dots next to the blocked
-            item and select <strong>Keep</strong>. If another warning follows,
-            click <strong>Show more</strong> and press{" "}
+            item and select <strong>Keep</strong>, and if another warning
+            follows, click <strong>Show more</strong> and press{" "}
             <strong>Keep anyway</strong>
           </li>
           <li>
@@ -62,14 +62,7 @@ const faqs: FaqItem[] = [
           <code>Liberator.exe</code> as false positives. The fix is to add the
           Launcher folder and your library folders as exclusions.
         </p>
-        <ExclusionSteps
-          folder={
-            <>
-              the Launcher folder (<code>%LOCALAPPDATA%\ThrowbackLauncher</code>{" "}
-              by default) and your library folders
-            </>
-          }
-        />
+        <ExclusionSteps folder="the Launcher folder and your library folders" />
         <Note className="my-3">
           Use <strong>Verify</strong> in the <strong>Manage</strong> tab of the
           season to restore removed game files.
@@ -149,8 +142,8 @@ const faqs: FaqItem[] = [
           , an open-source tool.
         </p>
         <Note className="my-3">
-          Your password is never stored — the Launcher keeps only an encrypted
-          access token, just like the Steam client.
+          Your password is never stored — the Launcher keeps only an access
+          token, just like the Steam client.
         </Note>
       </>
     ),
@@ -170,8 +163,8 @@ const faqs: FaqItem[] = [
           , an open-source tool.
         </p>
         <Note className="my-3">
-          Your password is never stored — DepotDownloader keeps only an
-          encrypted access token, just like the Steam client.
+          Your password is never stored — DepotDownloader keeps only an access
+          token, just like the Steam client.
         </Note>
       </>
     ),
@@ -183,8 +176,8 @@ const faqs: FaqItem[] = [
     a: (
       <>
         <p>
-          Edit the <strong>Username</strong> field in the Launcher Settings (max
-          16 characters).
+          Open the Launcher Settings and edit the <strong>Username</strong>{" "}
+          field (max 16 characters).
         </p>
         <Note className="my-3">
           Set your username before launching the game so it applies in-game.
@@ -294,9 +287,8 @@ const faqs: FaqItem[] = [
     a: (
       <p>
         Yes. Open the Launcher Settings, press <strong>Add library</strong> to
-        add a folder, and use the bookmark icon to make it the default. When
-        more than one library exists, the Launcher asks which one to use before
-        each download.
+        add a folder, and use the bookmark icon to make it the default.
+        Otherwise, the Launcher asks which library to use before each download.
       </p>
     ),
   },

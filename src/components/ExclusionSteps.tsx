@@ -1,11 +1,9 @@
-import type { ReactNode } from "react";
-
-export function ExclusionSteps({ folder }: { folder: ReactNode }) {
+export function ExclusionSteps({ folder }: { folder: string }) {
   return (
     <ol>
       <li>
         Search for <strong>Virus & threat protection</strong> in the Windows
-        start menu
+        Start menu
       </li>
       <li>
         Click <strong>Manage settings</strong> under{" "}

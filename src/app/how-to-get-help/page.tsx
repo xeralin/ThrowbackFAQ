@@ -20,7 +20,7 @@ export default function HowToGetHelp() {
 
       <Note className="mb-6">
         If you use the Launcher and run into errors, attach{" "}
-        <code>ThrowbackLauncher/bin/log.txt</code> to your report.
+        <code>ThrowbackLauncher/bin/errors.txt</code> to your report.
       </Note>
 
       <SectionTitle>Reporting an Issue to Staff</SectionTitle>

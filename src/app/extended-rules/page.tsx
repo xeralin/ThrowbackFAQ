@@ -149,12 +149,13 @@ export default function ExtendedRules() {
       <SectionTitle>§3 Final Verdict</SectionTitle>
       <Prose>
         <p>
-          Our staff has final verdict. <strong>If you are told to stop</strong>{" "}
-          doing something by our staff, <strong>you stop</strong> — and we
-          reserve the right to take action if you do not.
+          Our staff has the final verdict.{" "}
+          <strong>If you are told to stop</strong> doing something by our staff,{" "}
+          <strong>you stop</strong> — and we reserve the right to take action if
+          you do not.
         </p>
         <p>
-          If you believe staff have taken an action that was unjustified, you
+          If you believe our staff has taken an action that was unjustified, you
           may make a complaint to the server owner.
         </p>
         <Note variant="error" className="my-3">

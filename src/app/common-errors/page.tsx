@@ -102,8 +102,7 @@ const faqs: FaqItem[] = [
   },
   {
     id: "msvcr-dll",
-    q: "How do I fix the MSVCRXXX.dll error?",
-    display: (
+    q: (
       <>
         How do I fix the <code>MSVCRXXX.dll</code> error?
       </>
@@ -137,8 +136,7 @@ const faqs: FaqItem[] = [
   },
   {
     id: "d3dcompiler-dll",
-    q: "How do I fix the D3DCOMPILER_43.dll error?",
-    display: (
+    q: (
       <>
         How do I fix the <code>D3DCOMPILER_43.dll</code> error?
       </>
@@ -168,8 +166,7 @@ const faqs: FaqItem[] = [
   },
   {
     id: "missing-exe",
-    q: "How do I fix a missing .exe or the uplay_rx_loader64.dll error?",
-    display: (
+    q: (
       <>
         How do I fix a missing <code>.exe</code> or the{" "}
         <code>uplay_rx_loader64.dll</code> error?
@@ -237,11 +234,6 @@ const faqs: FaqItem[] = [
           </li>
         </ul>
         <ol>
-          <OnLauncher>
-            <li>
-              Delete the specified <code>.dll</code> file from the season folder
-            </li>
-          </OnLauncher>
           <OnDownloader>
             <li>
               Delete the specified <code>.dll</code> file from your season
@@ -254,6 +246,9 @@ const faqs: FaqItem[] = [
           </OnDownloader>
           <OnLauncher>
             <li>
+              Delete the specified <code>.dll</code> file from the season folder
+            </li>
+            <li>
               Use <strong>Verify</strong> in the <strong>Manage</strong> tab of
               the season to restore missing files
             </li>
@@ -264,11 +259,10 @@ const faqs: FaqItem[] = [
   },
   {
     id: "wrong-version",
-    q: 'My old R6S install opens the current season or gets stuck on "Preparing Content"',
-    display: (
+    q: (
       <>
         My old R6S install opens the current season or gets stuck on{" "}
-        <em>Preparing Content</em>
+        <em>Preparing Content</em>. What should I do?
       </>
     ),
     a: (
@@ -366,8 +360,7 @@ const faqs: FaqItem[] = [
   },
   {
     id: "user-profile",
-    q: 'Why do I get a "User profile loading failed" error?',
-    display: (
+    q: (
       <>
         Why do I get a <em>User profile loading failed</em> error?
       </>

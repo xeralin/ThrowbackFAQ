@@ -8,49 +8,11 @@ import { usePlatform, type Platform } from "@/lib/platform";
 
 export type FaqItem = {
   id: string;
-  q: string;
-  display?: ReactNode;
+  q: ReactNode;
   a: ReactNode;
   platform?: Platform;
   method?: Method;
 };
-
-function CopyIcon() {
-  return (
-    <svg
-      className="question-copy-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <rect x="9" y="9" width="13" height="13" rx="2" />
-      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-    </svg>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg
-      className="question-copy-check"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
 
 function Item({ item, query }: { item: FaqItem; query: string }) {
   const [open, setOpen] = useState(false);
@@ -108,7 +70,7 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
           aria-controls={answerId}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="question-title">{item.display ?? item.q}</span>
+          <span className="question-title">{item.q}</span>
           <StrokeIcon d="m6 9 6 6 6-6" className="question-chevron" />
         </button>
         <button
@@ -117,8 +79,17 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
           aria-label={copied > 0 ? "Link copied" : "Copy link"}
           onClick={copyLink}
         >
-          <CopyIcon />
-          {copied > 0 && <CheckIcon key={copied} />}
+          <StrokeIcon
+            d="M11 9h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2ZM5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+            className="question-copy-icon"
+          />
+          {copied > 0 && (
+            <StrokeIcon
+              key={copied}
+              d="M20 6 9 17 4 12"
+              className="question-copy-check"
+            />
+          )}
         </button>
       </div>
       <div id={answerId} className="answer" inert={!open}>
@@ -140,23 +111,18 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
   );
   const query =
     method === "downloader" && items.some((item) => item.method) ? "?jvav" : "";
-  const latest = useRef({ items, method, platform });
+  const latest = useRef({ items, visible, platform });
 
   useEffect(() => {
-    latest.current = { items, method, platform };
+    latest.current = { items, visible, platform };
   });
 
   useEffect(() => {
     function resolveHash() {
-      const { items, method, platform } = latest.current;
+      const { items, visible, platform } = latest.current;
       const target = window.location.hash.slice(1);
       if (!target || platform === "linux") return;
-      const shown = items.some(
-        (item) =>
-          item.id === target &&
-          (!item.platform || item.platform === platform) &&
-          (!item.method || item.method === method),
-      );
+      const shown = visible.some((item) => item.id === target);
       if (shown) return;
       const hidden = items.find(
         (item) =>

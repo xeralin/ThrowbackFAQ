@@ -13,8 +13,8 @@ export const navSections: NavSection[] = [
   {
     label: "Support",
     items: [
-      { href: "/common-errors", label: "Common Errors" },
       { href: "/multiplayer", label: "Multiplayer" },
+      { href: "/common-errors", label: "Common Errors" },
       { href: "/how-to-get-help", label: "How to Get Help" },
     ],
   },
