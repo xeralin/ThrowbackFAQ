@@ -22,7 +22,7 @@ export function Topbar() {
             <span key={index}>
               <Link
                 href={crumb.href}
-                className="cursor-pointer no-underline transition-colors hover:text-text"
+                className="cursor-pointer transition-colors hover:text-text"
               >
                 {crumb.label}
               </Link>

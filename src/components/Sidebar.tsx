@@ -16,7 +16,7 @@ export function Sidebar({
   onNavigate,
 }: {
   open: boolean;
-  onNavigate?: () => void;
+  onNavigate: () => void;
 }) {
   const pathname = normalizePath(usePathname());
   const [members, setMembers] = useState<string | null>(null);
@@ -60,7 +60,7 @@ export function Sidebar({
       <nav>
         {navSections.map((section) => {
           const sectionActive = section.items.some(
-            (item) => normalizePath(item.href) === pathname,
+            (item) => item.href === pathname,
           );
           return (
             <div key={section.label} className="px-3 pb-2 pt-[1.2rem]">
@@ -72,14 +72,14 @@ export function Sidebar({
                 {section.label}
               </div>
               {section.items.map((item) => {
-                const active = normalizePath(item.href) === pathname;
+                const active = item.href === pathname;
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={onNavigate}
                     aria-current={active ? "page" : undefined}
-                    className={`nav-link flex items-center justify-between rounded-md px-3 py-[0.55rem] text-[0.9rem] font-medium no-underline transition-[background-color,color,translate] duration-200 ${
+                    className={`nav-link flex items-center justify-between rounded-md px-3 py-[0.55rem] text-[0.9rem] font-medium transition-[background-color,color,translate] duration-200 ${
                       active
                         ? "border-l-2 border-brand bg-brand-dim text-text shadow-[inset_0_0_18px_-5px_var(--color-brand-glow-soft)]"
                         : "text-text-muted hover:bg-surface-2 hover:text-text"
@@ -98,13 +98,12 @@ export function Sidebar({
         <ExternalLink
           href={site.discordUrl}
           data-tone="muted"
-          className="group card-glow-hover relative block h-12 overflow-hidden rounded-md border border-border no-underline transition-[border-color,box-shadow] duration-200 [--card-glow-blur:16px]"
+          className="card-glow-hover relative block h-12 overflow-hidden rounded-md border border-border transition-[border-color,box-shadow] duration-200 [--card-glow-blur:16px]"
         >
           <Image
             src={withBasePath("/media/others/discord-banner.webp")}
             alt=""
             fill
-            sizes="280px"
             className="pointer-events-none select-none object-cover object-center"
           />
           <span className="absolute inset-0 bg-black/40" />

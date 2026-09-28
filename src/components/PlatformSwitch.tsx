@@ -17,7 +17,6 @@ export function PlatformSwitch() {
     const step = rovingStep(event);
     if (!step) return;
     const index = PLATFORMS.findIndex((entry) => entry.id === platform);
-    if (index === -1) return;
     event.preventDefault();
     const next =
       PLATFORMS[(index + step + PLATFORMS.length) % PLATFORMS.length];

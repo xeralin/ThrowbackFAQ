@@ -46,7 +46,6 @@ const breadcrumbs: Record<string, Crumb[]> = Object.fromEntries(
 );
 
 export function normalizePath(path: string): string {
-  if (!path) return "/";
   const trimmed = path.replace(/\/+$/, "");
   return trimmed === "" ? "/" : trimmed;
 }

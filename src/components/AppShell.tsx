@@ -13,6 +13,7 @@ const bar =
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     function clean() {
@@ -31,7 +32,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     window.addEventListener("hashchange", clean);
     return () => window.removeEventListener("hashchange", clean);
   }, [pathname]);
-  const router = useRouter();
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -49,7 +49,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       const current = normalizePath(pathname);
       const crumbs = breadcrumbFor(current);
       const parent = crumbs.length > 1 ? crumbs[crumbs.length - 2].href : null;
-      if (!parent || normalizePath(parent) === current) return;
+      if (!parent || parent === current) return;
       router.push(parent);
     }
     window.addEventListener("keydown", onKey);

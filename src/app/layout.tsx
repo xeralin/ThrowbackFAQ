@@ -39,10 +39,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [{ url: site.ogImage }],
   },
-  twitter: {
-    card: "summary",
-    images: [{ url: site.ogImage }],
-  },
+  twitter: { card: "summary" },
 };
 
 export const viewport: Viewport = {

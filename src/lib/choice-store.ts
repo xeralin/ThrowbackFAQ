@@ -1,9 +1,10 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { applySwitch } from "@/lib/switching";
 
 type ChoiceStore<T extends string> = {
-  set: (next: T, apply: (update: () => void) => void) => void;
+  set: (next: T) => void;
   use: () => T;
 };
 
@@ -33,13 +34,13 @@ export function createChoiceStore<T extends string>(
   }
 
   return {
-    set(next, apply) {
+    set(next) {
       if (cached === next) return;
       cached = next;
       try {
         sessionStorage.setItem(storageKey, next);
       } catch {}
-      apply(() => listeners.forEach((listener) => listener()));
+      applySwitch(() => listeners.forEach((listener) => listener()));
     },
     use: () => useSyncExternalStore(subscribe, getSnapshot, () => serverValue),
   };

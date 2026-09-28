@@ -18,7 +18,6 @@ export function Hero({ tag, corner, title, description }: HeroProps) {
         src={withBasePath(site.heroImage)}
         alt=""
         fill
-        sizes="100vw"
         priority
         className="pointer-events-none select-none object-cover object-center opacity-[0.28]"
       />

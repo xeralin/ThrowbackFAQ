@@ -1,7 +1,6 @@
 "use client";
 
 import { createChoiceStore } from "@/lib/choice-store";
-import { applySwitch } from "@/lib/switching";
 
 export type Platform = "windows" | "linux";
 
@@ -17,8 +16,6 @@ const store = createChoiceStore<Platform>(
   "windows",
 );
 
-export function setPlatform(next: Platform) {
-  store.set(next, applySwitch);
-}
+export const setPlatform = store.set;
 
 export const usePlatform = store.use;

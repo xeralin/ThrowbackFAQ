@@ -1,6 +1,4 @@
 const discordInvite = "r6s-operation-throwback-1092820800203141130";
-const launcherRepoUrl = "https://github.com/xeralin/ThrowbackLauncher";
-const jvavRepoUrl = "https://github.com/JOJOVAV/r6-downloader";
 
 export const site = {
   name: "Throwback FAQ",
@@ -12,8 +10,9 @@ export const site = {
   themeColor: "#c0152a",
   discordInvite,
   discordUrl: `https://discord.gg/${discordInvite}`,
-  launcherDownloadUrl: `${launcherRepoUrl}/releases/latest`,
-  jvavDownloaderUrl: `${jvavRepoUrl}/releases/latest`,
+  launcherDownloadUrl:
+    "https://github.com/xeralin/ThrowbackLauncher/releases/latest",
+  jvavDownloaderUrl: "https://github.com/JOJOVAV/r6-downloader/releases/latest",
   indevReleasesUrl:
     "https://discord.com/channels/1321476389815324733/1498791837346037861",
   helpChannelUrl:

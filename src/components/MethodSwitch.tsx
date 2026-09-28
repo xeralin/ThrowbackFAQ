@@ -15,7 +15,7 @@ export function MethodSwitch() {
   return (
     <div
       inert={hidden}
-      className={`grid transition-[grid-template-rows,opacity,margin] duration-200 ease-out ${
+      className={`grid transition-[grid-template-rows,opacity,margin] duration-200 ease-out-cubic ${
         hidden
           ? "mb-0 grid-rows-[0fr] opacity-0"
           : "mb-8 grid-rows-[1fr] opacity-100"
