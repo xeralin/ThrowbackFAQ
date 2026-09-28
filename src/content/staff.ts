@@ -141,6 +141,12 @@ export const users: StaffUser[] = [
     sections: ["staff"],
   },
   {
+    name: "Ace",
+    roles: ["helper"],
+    avatar: "/media/pfp/ace.webp",
+    sections: ["staff"],
+  },
+  {
     name: "Puppetino",
     tags: ["FAQ", "Legacy FAQ", "Discord Bot"],
     github: "https://github.com/Puppetino",
