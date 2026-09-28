@@ -28,6 +28,17 @@ const faqs: FaqItem[] = [
       </p>
     ),
   },
+  {
+    id: "unsupported-build",
+    q: "It says my build is unsupported. What does that mean?",
+    a: (
+      <p>
+        The Liberator only supports specific game builds. The{" "}
+        <strong>Support</strong> and <strong>Unlock All</strong> tabs above list
+        every supported build.
+      </p>
+    ),
+  },
 ];
 
 export default function Liberator() {
