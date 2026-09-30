@@ -23,7 +23,10 @@ function LauncherSteps() {
         <Prose>
           <p>
             Windows Security may flag the Launcher as a false positive because
-            it is not signed by a verified developer.
+            it is not signed by a verified developer. If you are unsure, you can
+            check the{" "}
+            <ExternalLink href={site.launcherRepoUrl}>source code</ExternalLink>
+            .
           </p>
           <ol>
             <li>
@@ -45,16 +48,13 @@ function LauncherSteps() {
       <Prose>
         <OnWindows>
           <p>
-            Download <code>Installer.exe</code> from the{" "}
-            <ExternalLink href={site.launcherDownloadUrl}>
-              latest release
-            </ExternalLink>{" "}
-            and run it.
+            Download{" "}
+            <a href={site.installerUrl}>
+              <code>Installer.exe</code>
+            </a>{" "}
+            and run it. <a href="#browser-block">Follow these steps</a> if your
+            browser blocks the download.
           </p>
-          <Note variant="error" className="my-3">
-            <a href="#browser-block">Follow these steps</a> if your browser
-            blocks the download.
-          </Note>
           <p>
             If Windows shows <em>Windows protected your PC</em>, click{" "}
             <strong>More info</strong> and then <strong>Run anyway</strong>.
@@ -70,10 +70,10 @@ function LauncherSteps() {
         <OnLinux>
           <ol>
             <li>
-              Download <code>ThrowbackLauncher.AppImage</code> from the{" "}
-              <ExternalLink href={site.launcherDownloadUrl}>
-                latest release
-              </ExternalLink>
+              Download{" "}
+              <a href={site.appImageUrl}>
+                <code>ThrowbackLauncher.AppImage</code>
+              </a>
             </li>
             <li>
               Enable <strong>Allow executing file as program</strong> in the
