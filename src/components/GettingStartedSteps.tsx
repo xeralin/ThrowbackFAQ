@@ -167,7 +167,7 @@ function JvavSteps() {
             Select <strong>Game Downloader</strong> from the main menu
           </li>
           <li>
-            Choose the <strong>year</strong>, then the <strong>season</strong>{" "}
+            Select the <strong>year</strong>, then the <strong>season</strong>{" "}
             you want to download
           </li>
           <li>

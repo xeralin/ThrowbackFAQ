@@ -238,9 +238,9 @@ const faqs: FaqItem[] = [
     method: "downloader",
     a: (
       <p>
-        Select <strong>Verify the game</strong> in the downloader menu and
-        choose the season. It checks for missing or corrupted files and
-        re-downloads them without deleting your existing files.
+        Select <strong>Verify the game</strong> in the downloader menu and then
+        the season. It checks for missing or corrupted files and re-downloads
+        them without deleting your existing files.
       </p>
     ),
   },

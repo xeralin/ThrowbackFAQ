@@ -147,7 +147,7 @@ export default function HeatedMetal() {
               the main menu
             </li>
             <li>
-              Choose <strong>Download Heated Metal</strong> and pick a season
+              Select <strong>Download Heated Metal</strong> and pick a season
             </li>
             <li>
               Launch the game with <code>RainbowSix.exe</code>
