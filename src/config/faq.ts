@@ -12,17 +12,17 @@ export const FAQ_PAGES = {
     tag: "Support & Troubleshooting",
     corner: "SETUP",
   },
-  multiplayer: {
-    title: "Multiplayer",
-    description: "How to set up and play with others using Radmin VPN.",
-    tag: "Support & Troubleshooting",
-    corner: "MP",
-  },
   commonErrors: {
     title: "Common Errors",
     description: "Solutions to the most frequently encountered game issues.",
     tag: "Support & Troubleshooting",
     corner: "ERR",
+  },
+  multiplayer: {
+    title: "Multiplayer",
+    description: "How to set up and play with others using Radmin VPN.",
+    tag: "Support & Troubleshooting",
+    corner: "MP",
   },
   howToGetHelp: {
     title: "How to Get Help",

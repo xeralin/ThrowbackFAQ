@@ -26,8 +26,8 @@ export default function Home() {
       <SectionTitle>Support & Troubleshooting</SectionTitle>
       <CardGrid>
         <NavCard href="/getting-started" {...FAQ_PAGES.gettingStarted} />
-        <NavCard href="/multiplayer" {...FAQ_PAGES.multiplayer} />
         <NavCard href="/common-errors" {...FAQ_PAGES.commonErrors} />
+        <NavCard href="/multiplayer" {...FAQ_PAGES.multiplayer} />
         <NavCard href="/how-to-get-help" {...FAQ_PAGES.howToGetHelp} />
       </CardGrid>
 
