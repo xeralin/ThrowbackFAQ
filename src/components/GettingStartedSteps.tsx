@@ -38,7 +38,7 @@ function LauncherSteps() {
               Turn off <strong>Real-time protection</strong>
             </li>
           </ol>
-          <Note variant="error" className="my-3">
+          <Note className="my-3">
             If you have any concerns, the{" "}
             <ExternalLink href={site.launcherRepoUrl}>source code</ExternalLink>{" "}
             is available on GitHub.
