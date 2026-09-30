@@ -23,10 +23,7 @@ function LauncherSteps() {
         <Prose>
           <p>
             Windows Security may flag the Launcher as a false positive because
-            it is not signed by a verified developer. If you are unsure, you can
-            check the{" "}
-            <ExternalLink href={site.launcherRepoUrl}>source code</ExternalLink>
-            .
+            it is not signed by a verified developer.
           </p>
           <ol>
             <li>
@@ -41,6 +38,11 @@ function LauncherSteps() {
               Turn off <strong>Real-time protection</strong>
             </li>
           </ol>
+          <Note variant="error" className="my-3">
+            If you have any concerns, the{" "}
+            <ExternalLink href={site.launcherRepoUrl}>source code</ExternalLink>{" "}
+            is available on GitHub.
+          </Note>
         </Prose>
       </OnWindows>
 
