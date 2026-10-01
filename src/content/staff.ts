@@ -70,7 +70,7 @@ export const users: StaffUser[] = [
     sections: ["staff"],
   },
   {
-    name: "Lordelias",
+    name: "LordElias",
     roles: ["developer"],
     github: "https://github.com/LordEliasTM",
     avatar: "/media/pfp/lordelias.webp",
@@ -112,7 +112,6 @@ export const users: StaffUser[] = [
   {
     name: "ConfusingFool93",
     roles: ["helper"],
-    github: "https://github.com/AvacadoWizard120",
     avatar: "/media/pfp/confusingfool93.webp",
     sections: ["staff"],
   },
@@ -125,6 +124,7 @@ export const users: StaffUser[] = [
   {
     name: "Celestarr",
     roles: ["helper"],
+    github: "https://github.com/Swerve2k",
     avatar: "/media/pfp/celestarr.webp",
     sections: ["staff"],
   },
