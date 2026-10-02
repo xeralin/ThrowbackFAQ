@@ -119,7 +119,7 @@ export default function HeatedMetal() {
           </ol>
           <OnLinux>
             <p>
-              <strong>Y9S2 New Blood</strong> only runs on a specific Proton
+              <strong>Y9S2 Heated Metal</strong> only runs on a specific Proton
               build.
             </p>
             <ol>
@@ -155,15 +155,14 @@ export default function HeatedMetal() {
           </ol>
         </OnDownloader>
         <Note>
-          <strong>Y9S2 New Blood</strong> is only available on the{" "}
+          <strong>Y9S2 Heated Metal</strong> is only available on the{" "}
           <ExternalLink href={site.heatedMetalDiscordUrl}>
             Heated Metal Discord
           </ExternalLink>
-          . Download the <code>.7z</code> from{" "}
+          . Download the latest <code>.7z</code> from{" "}
           <ExternalLink href={site.indevReleasesUrl}>
             <code>#indev-releases</code>
-          </ExternalLink>{" "}
-          first
+          </ExternalLink>
           <OnDownloader> and copy the files into your game folder</OnDownloader>
           .
         </Note>
