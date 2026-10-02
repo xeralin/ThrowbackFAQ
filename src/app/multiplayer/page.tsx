@@ -27,8 +27,8 @@ const faqs: FaqItem[] = [
     ),
   },
   {
-    id: "find-game",
-    q: "I cannot find the hosted game. What should I do?",
+    id: "join-game",
+    q: "I cannot join the hosted game. What should I do?",
     a: (
       <ol>
         <li>
