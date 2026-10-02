@@ -19,6 +19,36 @@ export const metadata: Metadata = pageMetadata({
 
 const faqs: FaqItem[] = [
   {
+    id: "game-crash",
+    q: "Why does my game crash?",
+    a: (
+      <ol>
+        <li>
+          <strong>Disable overlays</strong> — External overlays like Overwolf
+          can crash older seasons, so turn them off before launching
+        </li>
+        <OnLauncher>
+          <li>
+            <strong>Clear the app cache</strong> — Use <strong>Clear</strong>{" "}
+            next to <strong>App cache</strong> in <strong>Settings</strong>
+          </li>
+          <li>
+            <strong>Verify your files</strong> — Use <strong>Verify</strong> in
+            the <strong>Manage</strong> tab of the season to restore missing or
+            damaged files
+          </li>
+        </OnLauncher>
+        <OnDownloader>
+          <li>
+            <strong>Verify your files</strong> — Use{" "}
+            <strong>Verify the game</strong> in the downloader to restore
+            missing or damaged files
+          </li>
+        </OnDownloader>
+      </ol>
+    ),
+  },
+  {
     id: "download-errors",
     q: "I am getting errors while downloading. What should I do?",
     method: "launcher",
@@ -266,60 +296,59 @@ const faqs: FaqItem[] = [
       </>
     ),
     a: (
-      <>
-        <ol>
-          <li>
-            <strong>Restart the game</strong> — Close it completely
-            <OnLauncher>
-              {" "}
-              with <strong>Stop</strong> in the Launcher
-            </OnLauncher>
-            <OnWindows>
-              <OnLauncher> or</OnLauncher> via Task Manager
-            </OnWindows>{" "}
-            and try again
-          </li>
+      <ol>
+        <li>
+          <strong>Restart the game</strong> — Close it completely
+          <OnLauncher>
+            {" "}
+            with <strong>Stop</strong> in the Launcher
+          </OnLauncher>
+          <OnWindows>
+            <OnLauncher> or</OnLauncher> via Task Manager
+          </OnWindows>{" "}
+          and try again
+        </li>
+        <OnWindows>
           <OnDownloader>
             <li>
-              <strong>Verify your files</strong> — Use{" "}
-              <strong>Verify the game</strong> in the downloader to check for
-              missing or corrupted files
+              <strong>Check your antivirus</strong> — If files were removed,
+              exclude your R6S folder (see{" "}
+              <Link href="/getting-started#antivirus-exclusion">
+                Getting Started
+              </Link>
+              )
             </li>
           </OnDownloader>
           <OnLauncher>
             <li>
-              <strong>Verify your files</strong> — Use <strong>Verify</strong>{" "}
-              in the <strong>Manage</strong> tab of the season to check for
-              missing or corrupted files
+              <strong>Check your antivirus</strong> — If files were removed,
+              exclude the Launcher and library folders (see{" "}
+              <Link href="/getting-started#antivirus-exclusion">
+                Getting Started
+              </Link>
+              )
             </li>
           </OnLauncher>
-          <OnWindows>
-            <OnDownloader>
-              <li>
-                <strong>Check your antivirus</strong> — If files were removed,
-                exclude your R6S folder (see{" "}
-                <Link href="/getting-started#antivirus-exclusion">
-                  Getting Started
-                </Link>
-                ) and run <strong>Verify the game</strong> again
-              </li>
-            </OnDownloader>
-            <OnLauncher>
-              <li>
-                <strong>Check your antivirus</strong> — If files were removed,
-                exclude the Launcher and library folders (see{" "}
-                <Link href="/getting-started#antivirus-exclusion">
-                  Getting Started
-                </Link>
-                ) and run <strong>Verify</strong> again
-              </li>
-            </OnLauncher>
-          </OnWindows>
-        </ol>
-        <Note className="my-3">
-          This issue usually resolves itself after a restart.
-        </Note>
-      </>
+        </OnWindows>
+        <OnDownloader>
+          <li>
+            <strong>Verify your files</strong> — Use{" "}
+            <strong>Verify the game</strong> in the downloader to check for
+            missing or corrupted files
+          </li>
+        </OnDownloader>
+        <OnLauncher>
+          <li>
+            <strong>Clear the app cache</strong> — Use <strong>Clear</strong>{" "}
+            next to <strong>App cache</strong> in <strong>Settings</strong>
+          </li>
+          <li>
+            <strong>Verify your files</strong> — Use <strong>Verify</strong> in
+            the <strong>Manage</strong> tab of the season to check for missing
+            or corrupted files
+          </li>
+        </OnLauncher>
+      </ol>
     ),
   },
   {
