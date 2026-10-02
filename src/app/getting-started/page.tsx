@@ -326,17 +326,6 @@ const faqs: FaqItem[] = [
     a: <p>No. Each downloaded season runs on its own, like a separate game.</p>,
   },
   {
-    id: "proton-version",
-    q: "Which Proton version does the Launcher use?",
-    platform: "linux",
-    a: (
-      <p>
-        The Launcher picks a Proton version that you have installed. You can
-        change it under <strong>Proton</strong> in the Launcher Settings.
-      </p>
-    ),
-  },
-  {
     id: "download-stuck",
     q: "My download is stuck at a certain percentage. Is it broken?",
     method: "downloader",
