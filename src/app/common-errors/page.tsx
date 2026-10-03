@@ -20,32 +20,12 @@ export const metadata: Metadata = pageMetadata({
 const faqs: FaqItem[] = [
   {
     id: "game-crash",
-    q: "Why does my game crash?",
+    q: "Why does my game crash shortly after launching?",
     a: (
-      <ol>
-        <li>
-          <strong>Disable overlays</strong> — External overlays like Overwolf
-          can crash older seasons, so turn them off before launching
-        </li>
-        <OnLauncher>
-          <li>
-            <strong>Clear the app cache</strong> — Use <strong>Clear</strong>{" "}
-            next to <strong>App cache</strong> in <strong>Settings</strong>
-          </li>
-          <li>
-            <strong>Verify your files</strong> — Use <strong>Verify</strong> in
-            the <strong>Manage</strong> tab of the season to restore missing or
-            damaged files
-          </li>
-        </OnLauncher>
-        <OnDownloader>
-          <li>
-            <strong>Verify your files</strong> — Use{" "}
-            <strong>Verify the game</strong> in the downloader to restore
-            missing or damaged files
-          </li>
-        </OnDownloader>
-      </ol>
+      <p>
+        External overlays like Overwolf may be incompatible with the old R6S
+        build, so disable them before launching the game.
+      </p>
     ),
   },
   {
@@ -198,46 +178,25 @@ const faqs: FaqItem[] = [
     id: "missing-exe",
     q: (
       <>
-        How do I fix a missing <code>.exe</code> or the{" "}
-        <code>uplay_rx_loader64.dll</code> error?
+        How do I fix the <em>Could not find any R6 executable</em> error?
       </>
     ),
     platform: "windows",
+    method: "downloader",
     a: (
-      <>
-        <p>
-          This is usually caused by your antivirus blocking or removing a
-          required file.
-        </p>
-        <ol>
-          <OnDownloader>
-            <li>
-              Follow the instructions on{" "}
-              <Link href="/getting-started#antivirus-exclusion">
-                Getting Started
-              </Link>{" "}
-              to add an exclusion for your R6S folder
-            </li>
-            <li>
-              Use <strong>Verify the game</strong> in the downloader to restore
-              the removed files
-            </li>
-          </OnDownloader>
-          <OnLauncher>
-            <li>
-              Follow the instructions on{" "}
-              <Link href="/getting-started#antivirus-exclusion">
-                Getting Started
-              </Link>{" "}
-              to add the Launcher and library folders as exclusions
-            </li>
-            <li>
-              Use <strong>Verify</strong> in the <strong>Manage</strong> tab of
-              the season to restore the removed files
-            </li>
-          </OnLauncher>
-        </ol>
-      </>
+      <ol>
+        <li>
+          Follow the instructions on{" "}
+          <Link href="/getting-started/?jvav#antivirus-exclusion">
+            Getting Started
+          </Link>{" "}
+          to add an exclusion for your R6S folder
+        </li>
+        <li>
+          Use <strong>Verify the game</strong> in the downloader to restore the
+          removed files
+        </li>
+      </ol>
     ),
   },
   {
@@ -313,7 +272,7 @@ const faqs: FaqItem[] = [
             <li>
               <strong>Check your antivirus</strong> — If files were removed,
               exclude your R6S folder (see{" "}
-              <Link href="/getting-started#antivirus-exclusion">
+              <Link href="/getting-started/?jvav#antivirus-exclusion">
                 Getting Started
               </Link>
               )
