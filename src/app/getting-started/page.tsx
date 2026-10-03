@@ -172,22 +172,6 @@ const faqs: FaqItem[] = [
   {
     id: "username",
     q: "How do I change my username?",
-    method: "launcher",
-    a: (
-      <>
-        <p>
-          Open the Launcher Settings and edit the <strong>Username</strong>{" "}
-          field (max 16 characters).
-        </p>
-        <Note className="my-3">
-          Set your username before launching the game so it applies in-game.
-        </Note>
-      </>
-    ),
-  },
-  {
-    id: "username",
-    q: "How do I change my username?",
     method: "downloader",
     a: (
       <>
@@ -203,56 +187,14 @@ const faqs: FaqItem[] = [
     ),
   },
   {
-    id: "discord-presence",
-    q: "How does the Discord presence work?",
-    method: "launcher",
-    a: (
-      <>
-        <p>
-          The Launcher can show the season you are playing as a Discord
-          activity. Open the Launcher Settings and enable{" "}
-          <strong>Discord presence</strong>.
-        </p>
-        <Note className="my-3">
-          <strong>Share my activity</strong> has to be enabled under{" "}
-          <strong>Activity Privacy</strong> in your Discord settings.
-        </Note>
-      </>
-    ),
-  },
-  {
-    id: "verify",
-    q: "What does Verify do?",
-    method: "launcher",
-    a: (
-      <p>
-        The <strong>Manage</strong> tab of a season shows a{" "}
-        <strong>Verify</strong> button. It checks for missing or corrupted files
-        and re-downloads them without deleting your existing files.
-      </p>
-    ),
-  },
-  {
-    id: "verify",
-    q: "What does Verify do?",
-    method: "downloader",
-    a: (
-      <p>
-        Select <strong>Verify the game</strong> in the downloader menu and then
-        the season. It checks for missing or corrupted files and re-downloads
-        them without deleting your existing files.
-      </p>
-    ),
-  },
-  {
     id: "loader-files",
-    q: "How do I replace the loader files?",
+    q: "How do I replace the Loader files?",
     method: "downloader",
     a: (
       <>
         <ol>
           <li>
-            Download the latest loader <code>.zip</code> from the official{" "}
+            Download the latest Loader <code>.zip</code> from the official{" "}
             <ExternalLink href={`${site.oldLoaderRepoUrl}/releases/latest`}>
               repository
             </ExternalLink>
@@ -281,42 +223,13 @@ const faqs: FaqItem[] = [
     ),
   },
   {
-    id: "different-drive",
-    q: "Can I install a season to a different drive?",
-    method: "launcher",
+    id: "download-broken",
+    q: "My download is stuck at a certain percentage. Is it broken?",
     a: (
       <p>
-        Yes. Open the Launcher Settings, press <strong>Add library</strong> to
-        add a folder, and use the bookmark icon to make it the default.
-        Otherwise, the Launcher asks which library to use before each download.
-      </p>
-    ),
-  },
-  {
-    id: "different-drive",
-    q: "Can I install a season to a different drive?",
-    method: "downloader",
-    a: (
-      <>
-        <p>
-          Move the downloader to the desired location before downloading — the
-          game files are stored next to it.
-        </p>
-        <Note className="my-3">
-          Remember to update your antivirus exclusion to point to the new
-          folder.
-        </Note>
-      </>
-    ),
-  },
-  {
-    id: "delete-season",
-    q: "How do I delete a season?",
-    method: "downloader",
-    a: (
-      <p>
-        Delete the season folder. If the game is still running in the
-        background, close it first.
+        Not necessarily. The percentage only updates when a file is done
+        downloading, and some game files are very large. As long as there is
+        network activity, the download is still running.
       </p>
     ),
   },
@@ -324,19 +237,6 @@ const faqs: FaqItem[] = [
     id: "current-season",
     q: "Do I need the current season of R6S installed?",
     a: <p>No. Each downloaded season runs on its own, like a separate game.</p>,
-  },
-  {
-    id: "download-stuck",
-    q: "My download is stuck at a certain percentage. Is it broken?",
-    method: "downloader",
-    a: (
-      <p>
-        Not necessarily. The progress bar only updates when an individual file
-        is done downloading, and some files are very large. Open Task Manager
-        and check whether the downloader or <strong>.NET Host</strong> is using
-        network bandwidth. If so, the download is still active.
-      </p>
-    ),
   },
 ];
 
