@@ -33,7 +33,7 @@ const faqs: FaqItem[] = [
       <ol>
         <li>
           <strong>Build</strong> — All players must download the same build,
-          which <strong>Show Metrics</strong> in the game settings confirms
+          which the in-game <strong>Show Metrics</strong> option confirms
         </li>
         <li>
           <strong>Network</strong> — Make sure all players are connected to the
