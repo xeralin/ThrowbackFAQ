@@ -1,4 +1,16 @@
-export function StrokeIcon({ d, className }: { d: string; className: string }) {
+import type { ReactNode } from "react";
+
+export const PROTON = "m4 17 6-6-6-6M12 19h8";
+
+export function StrokeIcon({
+  d,
+  className,
+  children,
+}: {
+  d?: string;
+  className: string;
+  children?: ReactNode;
+}) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -11,7 +23,7 @@ export function StrokeIcon({ d, className }: { d: string; className: string }) {
       aria-hidden="true"
       focusable="false"
     >
-      <path d={d} />
+      {d ? <path d={d} /> : children}
     </svg>
   );
 }

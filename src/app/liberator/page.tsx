@@ -6,6 +6,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Prose } from "@/components/Prose";
 import { SupportedSeasons } from "@/components/SupportedSeasons";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
+import { StrokeIcon } from "@/components/StrokeIcon";
 import { pageMetadata } from "@/lib/metadata";
 import { FAQ_PAGES } from "@/config/faq";
 import { site } from "@/config/site";
@@ -15,27 +16,48 @@ export const metadata: Metadata = pageMetadata({
   path: "/liberator",
 });
 
+function AppliedIcon() {
+  return (
+    <span
+      role="img"
+      aria-label="Unlock All has been applied"
+      className="inline-flex align-[-0.2em]"
+    >
+      <StrokeIcon className="size-[1.22em] text-success">
+        <rect
+          x="3"
+          y="11"
+          width="13"
+          height="10"
+          rx="1.5"
+          fill="currentColor"
+        />
+        <path d="M12.5 10V6a3.75 3.75 0 0 1 7.5 0v2" strokeWidth={2.5} />
+      </StrokeIcon>
+    </span>
+  );
+}
+
 const faqs: FaqItem[] = [
   {
     id: "operators-locked",
     q: "Why are my operators locked?",
     a: (
       <p>
-        Operators stay locked until the Liberator has finished loading. Check
-        the status next to the <strong>Liberator</strong> switch on the
-        Liberator page in the Launcher and wait until it shows{" "}
-        <strong>Idle</strong> or <strong>Unlock All has been applied</strong>.
+        Since Y8S3 Heavy Mettle, operators are locked by default. Wait until the
+        Liberator page in the Launcher shows <AppliedIcon /> next to the{" "}
+        <strong>Liberator</strong> switch.
       </p>
     ),
   },
   {
     id: "unsupported-build",
-    q: "It says my build is unsupported. What does that mean?",
+    q: "Why is there a warning next to the Liberator switch?",
     a: (
       <p>
-        The Liberator only supports specific game builds. The{" "}
-        <strong>Support</strong> and <strong>Unlock All</strong> tabs above list
-        every supported build.
+        Your game build is not supported. The Liberator only supports specific
+        game builds. The <strong>Support</strong> and{" "}
+        <strong>Unlock All</strong> tabs above list every supported build.
       </p>
     ),
   },
@@ -46,7 +68,7 @@ export default function Liberator() {
     <>
       <FaqHero page="liberator" />
 
-      <Note className="mb-6">
+      <Note>
         The Liberator for{" "}
         <ExternalLink href={site.jvavDownloaderUrl}>
           JVAV&apos;s Downloader
