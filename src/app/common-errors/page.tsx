@@ -20,7 +20,8 @@ export const metadata: Metadata = pageMetadata({
 const faqs: FaqItem[] = [
   {
     id: "game-crash",
-    q: "Why does my game crash shortly after launching?",
+    q: "Why does my game keep crashing?",
+    platform: "windows",
     a: (
       <p>
         External overlays like Overwolf may be incompatible with the old R6S
@@ -126,20 +127,16 @@ const faqs: FaqItem[] = [
         </p>
         <ol>
           <li>
-            Visit this{" "}
-            <ExternalLink href="https://github.com/abbodi1406/vcredist/releases/latest">
-              repository
-            </ExternalLink>
-          </li>
-          <li>
-            Download <code>VisualCppRedist_AIO_x86_x64.exe</code> and run it as
-            administrator
+            Download{" "}
+            <a href="https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe">
+              <code>VisualCppRedist_AIO_x86_x64.exe</code>
+            </a>{" "}
+            and run it as administrator
           </li>
           <li>Restart your computer and try launching the game again</li>
         </ol>
         <Note className="my-3">
-          If the error persists, make sure Windows is fully up to date, then
-          repeat the steps above.
+          If the error persists, make sure Windows is fully up to date.
         </Note>
       </>
     ),
@@ -331,10 +328,7 @@ const faqs: FaqItem[] = [
             </a>{" "}
             file
           </li>
-          <li>
-            Move it into the folder of the affected season, replacing the
-            existing file
-          </li>
+          <li>Move it into the season folder and replace the existing file</li>
           <li>Launch the game</li>
         </ol>
         <ContentImage
