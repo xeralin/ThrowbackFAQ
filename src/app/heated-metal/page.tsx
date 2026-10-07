@@ -13,6 +13,8 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { pageMetadata } from "@/lib/metadata";
 import { FAQ_PAGES } from "@/config/faq";
 import { site } from "@/config/site";
+import { stepBox, stepList } from "@/components/ui";
+import { PROTON, StrokeIcon } from "@/components/StrokeIcon";
 
 export const metadata: Metadata = pageMetadata({
   ...FAQ_PAGES.heatedMetal,
@@ -75,16 +77,16 @@ export default function HeatedMetal() {
       <SectionTitle flush>Support</SectionTitle>
       <Prose>
         <p>
-          Heated Metal is a full SDK (Software Development Kit) for R6S by{" "}
+          Heated Metal is an SDK (Software Development Kit) for R6S by{" "}
           <ExternalLink href={site.heatedMetalRepoUrl}>
             DataCluster0
           </ExternalLink>{" "}
-          that adds extended capabilities to specific old game builds.
+          that adds extended capabilities to the following seasons.
         </p>
         <SeasonTable rows={heatedMetalSeasons} showVersion />
       </Prose>
 
-      <div className="mb-8">
+      <div>
         <LinkButton href={site.heatedMetalRepoUrl}>Repository</LinkButton>
         <LinkButton href={site.heatedMetalDiscordUrl} variant="secondary">
           Discord
@@ -95,12 +97,17 @@ export default function HeatedMetal() {
       <Prose>
         <ul>
           <OnWindows>
-            <li>The latest Visual C++ Redistributables</li>
+            <li>
+              Latest <a href={site.vcRedistUrl}>Visual C++ Redistributable</a>
+            </li>
           </OnWindows>
           <li>Medium or above in-game textures on Y5S3 Shadow Legacy</li>
-          <li>
-            External overlays disabled, as they can stop the UI from rendering
-          </li>
+          <OnWindows>
+            <li>External overlays like Overwolf disabled</li>
+          </OnWindows>
+          <OnLinux>
+            <li>External overlays disabled</li>
+          </OnLinux>
         </ul>
       </Prose>
 
@@ -109,35 +116,46 @@ export default function HeatedMetal() {
         <OnLauncher>
           <ol>
             <li>
-              Open one of the supported seasons above in the Launcher and switch
-              to the <strong>Heated Metal</strong> tab
+              Navigate to one of the supported seasons above and switch to the{" "}
+              <strong>Heated Metal</strong> tab
             </li>
             <li>
-              Press <strong>Download</strong>, then launch the game from the
-              Launcher once it completes
+              Press <strong>Download</strong>
             </li>
           </ol>
           <OnLinux>
-            <p>
-              <strong>Y9S2 Heated Metal</strong> only runs on a specific Proton
-              build.
-            </p>
-            <ol>
-              <li>
-                Download the Proton build from{" "}
-                <ExternalLink href={site.indevReleasesUrl}>
-                  <code>#indev-releases</code>
-                </ExternalLink>
-              </li>
-              <li>
-                Extract it into{" "}
-                <code>~/.local/share/ThrowbackLauncher/bin/proton</code>
-              </li>
-              <li>
-                Pick it under <strong>Proton</strong> in the{" "}
-                <strong>Manage</strong> tab of the season
-              </li>
-            </ol>
+            <div className={`mb-4 w-fit max-w-[720px] ${stepBox}`}>
+              <p className="mb-[0.3rem] text-[0.78rem] leading-[1.45]">
+                <strong>Y9S2 Heated Metal</strong> only runs on a specific
+                Proton build.
+              </p>
+              <ol className={stepList}>
+                <li>
+                  Download the Proton build from{" "}
+                  <ExternalLink
+                    href={site.heatedMetalDiscordUrl}
+                    className="whitespace-nowrap"
+                  >
+                    <code>#indev-releases</code>
+                  </ExternalLink>
+                </li>
+                <li>
+                  Extract it into{" "}
+                  <code>~/.local/share/ThrowbackLauncher/bin/proton</code>
+                </li>
+                <li>
+                  Pick it under{" "}
+                  <strong>
+                    <StrokeIcon
+                      d={PROTON}
+                      className="inline size-[1.15em] align-[-0.2em]"
+                    />{" "}
+                    Proton
+                  </strong>{" "}
+                  in the <strong>Manage</strong> tab
+                </li>
+              </ol>
+            </div>
           </OnLinux>
         </OnLauncher>
         <OnDownloader>
@@ -150,7 +168,7 @@ export default function HeatedMetal() {
               Select <strong>Download Heated Metal</strong> and pick a season
             </li>
             <li>
-              Launch the game with <code>RainbowSix.exe</code>
+              Launch the game with <code>LaunchR6.bat</code>
             </li>
           </ol>
         </OnDownloader>
@@ -159,8 +177,11 @@ export default function HeatedMetal() {
           <ExternalLink href={site.heatedMetalDiscordUrl}>
             Heated Metal Discord
           </ExternalLink>
-          . Download the latest <code>.7z</code> from{" "}
-          <ExternalLink href={site.indevReleasesUrl}>
+          . Download the latest <code>Unstable.7z</code> from{" "}
+          <ExternalLink
+            href={site.heatedMetalDiscordUrl}
+            className="whitespace-nowrap"
+          >
             <code>#indev-releases</code>
           </ExternalLink>
           <OnDownloader> and copy the files into your game folder</OnDownloader>
