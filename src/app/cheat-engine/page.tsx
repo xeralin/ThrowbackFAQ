@@ -4,8 +4,8 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Prose } from "@/components/Prose";
 import { ExternalLink } from "@/components/ExternalLink";
 import { LinkButton } from "@/components/LinkButton";
-import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { OnLinux, OnWindows } from "@/components/OnPlatform";
+import { PROTON, StrokeIcon } from "@/components/StrokeIcon";
 import { heading, panel } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
 import { withBasePath } from "@/lib/asset";
@@ -31,45 +31,6 @@ const tables = [
       "Adds mass spawns, health and ammo tweaks, near-unlimited survivability, longer defuse timers, and outside-zone access to Terrorist Hunt.",
     file: "y5s3-shadowlegacy.ct",
     download: "Y5S3_ShadowLegacy.ct",
-  },
-];
-
-const faqs: FaqItem[] = [
-  {
-    id: "other-seasons",
-    q: "Do the tables work on other seasons?",
-    a: (
-      <p>
-        No. A table only works with the season named on its card above. On any
-        other build the memory addresses do not line up.
-      </p>
-    ),
-  },
-  {
-    id: "load-table",
-    q: "Do I have to load the table every time?",
-    a: (
-      <p>
-        Yes. A table loads into memory for the current session only and does not
-        modify any game files.
-      </p>
-    ),
-  },
-  {
-    id: "run-alongside",
-    q: "Can I run Cheat Engine alongside the game?",
-    platform: "windows",
-    a: (
-      <p>
-        Yes. If you use the Launcher, open <code>Config.toml</code> in the
-        season folder and add the path of your installed Cheat Engine to the{" "}
-        <code>autorun</code> entry, for example{" "}
-        <code>
-          autorun = [&apos;C:\Program Files\Cheat Engine\Cheat Engine.exe&apos;]
-        </code>
-        .
-      </p>
-    ),
   },
 ];
 
@@ -101,14 +62,17 @@ export default function CheatEngine() {
               for Windows
             </li>
             <li>
-              Open this page in the Launcher and press{" "}
-              <strong>Set up Cheat Engine</strong> to add it to an installed
-              season
+              Turn on <strong>Cheat Engine</strong> under{" "}
+              <strong>
+                <StrokeIcon
+                  d={PROTON}
+                  className="inline size-[1.15em] align-[-0.2em]"
+                />{" "}
+                Proton
+              </strong>{" "}
+              in the <strong>Manage</strong> tab of a season
             </li>
-            <li>
-              Pick the installer and click through it, denying{" "}
-              <strong>any bundled offers</strong> to avoid adware
-            </li>
+            <li>Pick the installer and click through it</li>
             <li>Cheat Engine opens alongside the game</li>
           </ol>
         </OnLinux>
@@ -134,7 +98,7 @@ export default function CheatEngine() {
       </Prose>
 
       <SectionTitle>Cheat Tables</SectionTitle>
-      <div className="mb-8 flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {tables.map((table) => (
           <div key={table.file} className={`${panel} p-5`}>
             <h3 className={heading}>{table.name}</h3>
@@ -150,9 +114,6 @@ export default function CheatEngine() {
           </div>
         ))}
       </div>
-
-      <SectionTitle>Frequently Asked Questions</SectionTitle>
-      <FaqAccordion items={faqs} />
     </>
   );
 }
