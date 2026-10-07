@@ -12,8 +12,6 @@ import { site } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
 import { FAQ_PAGES } from "@/config/faq";
 
-const STEAM_STORE_URL = "https://store.steampowered.com/app/359550/";
-
 export const metadata: Metadata = pageMetadata({
   ...FAQ_PAGES.gettingStarted,
   path: "/getting-started",
@@ -58,34 +56,10 @@ const faqs: FaqItem[] = [
     a: (
       <>
         <p>
-          Some antivirus programs flag Heated Metal and{" "}
-          <code>Liberator.exe</code> as false positives. The fix is to add the
-          Launcher folder and your library folders as exclusions.
+          Windows Security may flag Heated Metal and the Liberator as false
+          positives.
         </p>
         <ExclusionSteps folder="the Launcher folder and your library folders" />
-        <Note className="my-3">
-          Use <strong>Verify</strong> in the <strong>Manage</strong> tab of the
-          season to restore removed game files.
-        </Note>
-      </>
-    ),
-  },
-  {
-    id: "ubisoft-epic-account",
-    q: "I do not own R6S on Steam. Can I use my Ubisoft or Epic Games account?",
-    method: "launcher",
-    a: (
-      <>
-        <p>
-          No. The Launcher uses the Steam depot service to download old game
-          seasons. This requires a valid Steam account with a registered license
-          for R6S.
-        </p>
-        <p>
-          <strong>R6S is free on Steam</strong> — add it to your Steam library
-          on its <ExternalLink href={STEAM_STORE_URL}>store page</ExternalLink>{" "}
-          and the Launcher will work.
-        </p>
       </>
     ),
   },
@@ -96,34 +70,8 @@ const faqs: FaqItem[] = [
     method: "downloader",
     a: (
       <>
-        <p>
-          Some antivirus programs flag game files as false positives. The fix is
-          to add your R6S folder as an exclusion.
-        </p>
+        <p>Windows Security may flag game files as false positives.</p>
         <ExclusionSteps folder="your R6S folder" />
-        <Note className="my-3">
-          Use <strong>Verify the game</strong> in the downloader to restore
-          removed game files.
-        </Note>
-      </>
-    ),
-  },
-  {
-    id: "ubisoft-epic-account",
-    q: "I do not own R6S on Steam. Can I use my Ubisoft or Epic Games account?",
-    method: "downloader",
-    a: (
-      <>
-        <p>
-          No. The downloader uses the Steam depot service to download old game
-          seasons. This requires a valid Steam account with a registered license
-          for R6S.
-        </p>
-        <p>
-          <strong>R6S is free on Steam</strong> — add it to your Steam library
-          on its <ExternalLink href={STEAM_STORE_URL}>store page</ExternalLink>{" "}
-          and the downloader will work.
-        </p>
       </>
     ),
   },
@@ -134,15 +82,15 @@ const faqs: FaqItem[] = [
     a: (
       <>
         <p>
-          Your credentials are required to access the Steam depot servers, where
-          the old game files are stored. The Launcher uses{" "}
+          Your login is required to access the Steam depot servers, where the
+          old game files are stored. The Launcher uses{" "}
           <ExternalLink href={site.depotDownloaderRepoUrl}>
             DepotDownloader
           </ExternalLink>
           , an open-source tool.
         </p>
         <Note className="my-3">
-          Your password is never stored — the Launcher keeps only an access
+          Your password is never stored. The Launcher keeps only an access
           token, just like the Steam client.
         </Note>
       </>
@@ -155,15 +103,15 @@ const faqs: FaqItem[] = [
     a: (
       <>
         <p>
-          Your credentials are required to access the Steam depot servers, where
-          the old game files are stored. The downloader uses{" "}
+          Your login is required to access the Steam depot servers, where the
+          old game files are stored. The downloader uses{" "}
           <ExternalLink href={site.depotDownloaderRepoUrl}>
             DepotDownloader
           </ExternalLink>
           , an open-source tool.
         </p>
         <Note className="my-3">
-          Your password is never stored — DepotDownloader keeps only an access
+          Your password is never stored. DepotDownloader keeps only an access
           token, just like the Steam client.
         </Note>
       </>
@@ -224,12 +172,11 @@ const faqs: FaqItem[] = [
   },
   {
     id: "download-broken",
-    q: "My download is stuck at a certain percentage. Is it broken?",
+    q: "Why is my download stuck at a certain percentage?",
     a: (
       <p>
-        Not necessarily. The percentage only updates when a file is done
-        downloading, and some game files are very large. As long as there is
-        network activity, the download is still running.
+        Some game files are very large, and the percentage only updates when a
+        file is done. If there is network activity, it is still downloading.
       </p>
     ),
   },

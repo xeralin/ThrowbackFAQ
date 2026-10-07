@@ -111,7 +111,7 @@ function LauncherSteps() {
 function JvavSteps() {
   return (
     <>
-      <SectionTitle flush>Prepare an R6S Folder</SectionTitle>
+      <SectionTitle flush>Preparation</SectionTitle>
       <Prose>
         <p>
           Create a dedicated folder for the game on whichever drive you want to
@@ -131,7 +131,7 @@ function JvavSteps() {
         </Note>
       </Prose>
 
-      <SectionTitle>Add a Windows Security Exclusion</SectionTitle>
+      <SectionTitle>Antivirus</SectionTitle>
       <Prose>
         <p>
           Before downloading the game, add your R6S folder as an exclusion in
@@ -149,20 +149,16 @@ function JvavSteps() {
         </p>
       </Prose>
 
-      <SectionTitle>Download the Game</SectionTitle>
+      <SectionTitle>Download</SectionTitle>
       <Prose>
         <Note className="my-3">Requires .NET 9.0 or newer.</Note>
         <ol>
           <li>
-            Download the <code>.bat</code> file from the{" "}
-            <ExternalLink href={site.jvavDownloaderUrl}>
-              latest release
-            </ExternalLink>{" "}
-            and place it inside your R6S folder
-          </li>
-          <li>
-            Run the <code>.bat</code> file — it will automatically download
-            everything it needs
+            Download{" "}
+            <a href={site.jvavBatUrl}>
+              <code>r6downloader.bat</code>
+            </a>
+            , place it inside your R6S folder and run it
           </li>
           <li>Enter your Steam account name, not your profile name</li>
           <li>
