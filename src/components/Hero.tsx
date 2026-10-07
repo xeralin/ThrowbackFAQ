@@ -18,7 +18,7 @@ export function Hero({ tag, corner, title, description }: HeroProps) {
         src={withBasePath(site.heroImage)}
         alt=""
         fill
-        priority
+        preload
         className="pointer-events-none select-none object-cover object-center opacity-[0.28]"
       />
       <div className="absolute inset-0 animate-hero-glow bg-[radial-gradient(ellipse_at_70%_50%,var(--color-brand-glow)_0%,transparent_65%)]" />
@@ -33,7 +33,7 @@ export function Hero({ tag, corner, title, description }: HeroProps) {
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute right-6 top-1/2 translate-y-[calc(-50%_+_0.036em)] animate-flicker select-none font-display text-[6rem] font-bold leading-none text-[color-mix(in_srgb,var(--color-brand)_22%,transparent)] max-content:hidden"
+        className="pointer-events-none absolute right-6 top-1/2 translate-y-[calc(-50%_+_0.036em)] select-none font-display text-[6rem] font-bold leading-none text-[color-mix(in_srgb,var(--color-brand)_22%,transparent)] max-content:hidden"
       >
         {corner}
       </div>

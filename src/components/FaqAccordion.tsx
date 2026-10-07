@@ -1,10 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import { StrokeIcon } from "@/components/StrokeIcon";
-import type { ReactNode } from "react";
-import { setMethod, useMethod, type Method } from "@/lib/method";
-import { usePlatform, type Platform } from "@/lib/platform";
+import {
+  setMethod,
+  useMethod,
+  useStoredMethod,
+  type Method,
+} from "@/lib/method";
+import { setPlatform, usePlatform, type Platform } from "@/lib/platform";
 
 export type FaqItem = {
   id: string;
@@ -14,16 +24,26 @@ export type FaqItem = {
   method?: Method;
 };
 
+const subscribeNever = () => () => {};
+
+function useHydrated(): boolean {
+  return useSyncExternalStore(
+    subscribeNever,
+    () => true,
+    () => false,
+  );
+}
+
 function Item({ item, query }: { item: FaqItem; query: string }) {
+  const hydrated = useHydrated();
   const [open, setOpen] = useState(false);
   const [pulse, setPulse] = useState(false);
   const [copied, setCopied] = useState(0);
   const copyTimer = useRef(0);
   const answerId = `faq-${item.id}-answer`;
-  const anchor = item.id;
 
   function copyLink() {
-    const url = `${window.location.origin}${window.location.pathname}${query}#${anchor}`;
+    const url = `${window.location.origin}${window.location.pathname}${query}#${item.id}`;
     navigator.clipboard.writeText(url).then(
       () => {
         setCopied((tick) => tick + 1);
@@ -35,8 +55,9 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
   }
 
   useEffect(() => {
+    if (!hydrated) return;
     function openFromHash() {
-      if (window.location.hash.slice(1) !== anchor) return;
+      if (window.location.hash.slice(1) !== item.id) return;
       window.history.replaceState(
         window.history.state,
         "",
@@ -45,17 +66,17 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
       setOpen(true);
       setPulse(true);
       requestAnimationFrame(() =>
-        document.getElementById(anchor)?.scrollIntoView({ block: "start" }),
+        document.getElementById(item.id)?.scrollIntoView({ block: "start" }),
       );
     }
     openFromHash();
     window.addEventListener("hashchange", openFromHash);
     return () => window.removeEventListener("hashchange", openFromHash);
-  }, [anchor]);
+  }, [item.id, hydrated]);
 
   return (
     <div
-      id={anchor}
+      id={item.id}
       data-reveal
       onAnimationEnd={(event) => {
         if (event.animationName === "hashPulse") setPulse(false);
@@ -102,8 +123,10 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
 }
 
 export function FaqAccordion({ items }: { items: FaqItem[] }) {
+  const hydrated = useHydrated();
   const platform = usePlatform();
   const method = useMethod();
+  const storedMethod = useStoredMethod();
   const visible = items.filter(
     (item) =>
       (!item.platform || item.platform === platform) &&
@@ -111,29 +134,33 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
   );
   const query =
     method === "downloader" && items.some((item) => item.method) ? "?jvav" : "";
-  const latest = useRef({ items, visible, platform });
+  const latest = useRef({ items, visible, platform, storedMethod });
 
   useEffect(() => {
-    latest.current = { items, visible, platform };
+    latest.current = { items, visible, platform, storedMethod };
   });
 
   useEffect(() => {
+    if (!hydrated) return;
     function resolveHash() {
-      const { items, visible, platform } = latest.current;
+      const { items, visible, platform, storedMethod } = latest.current;
       const target = window.location.hash.slice(1);
-      if (!target || platform === "linux") return;
-      const shown = visible.some((item) => item.id === target);
-      if (shown) return;
-      const hidden = items.find(
-        (item) =>
-          item.id === target && (!item.platform || item.platform === platform),
-      );
-      if (hidden?.method) setMethod(hidden.method);
+      if (!target || visible.some((item) => item.id === target)) return;
+      const matches = items.filter((item) => item.id === target);
+      const hidden =
+        matches.find((item) => !item.method || item.method === storedMethod) ??
+        matches[0];
+      if (!hidden) return;
+      const needed =
+        hidden.platform ??
+        (hidden.method === "downloader" ? "windows" : platform);
+      if (needed !== platform) setPlatform(needed);
+      if (hidden.method) setMethod(hidden.method);
     }
-    resolveHash();
+    queueMicrotask(resolveHash);
     window.addEventListener("hashchange", resolveHash);
     return () => window.removeEventListener("hashchange", resolveHash);
-  }, []);
+  }, [hydrated]);
   return (
     <div className="faq-list">
       {visible.map((item) => (

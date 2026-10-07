@@ -9,25 +9,25 @@ export const FAQ_PAGES = {
   gettingStarted: {
     title: "Getting Started",
     description: "How to set up and download Operation Throwback.",
-    tag: "Support & Troubleshooting",
+    tag: "Support",
     corner: "SETUP",
   },
   commonErrors: {
     title: "Common Errors",
     description: "Solutions to the most frequently encountered game issues.",
-    tag: "Support & Troubleshooting",
+    tag: "Support",
     corner: "ERR",
   },
   multiplayer: {
     title: "Multiplayer",
     description: "How to set up and play with others using Radmin VPN.",
-    tag: "Support & Troubleshooting",
+    tag: "Support",
     corner: "MP",
   },
   howToGetHelp: {
     title: "How to Get Help",
     description: "What to include in a report so the staff can help you.",
-    tag: "Support & Troubleshooting",
+    tag: "Support",
     corner: "HELP",
   },
   liberator: {

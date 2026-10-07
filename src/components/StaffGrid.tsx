@@ -8,8 +8,8 @@ import {
   type StaffRole,
   type StaffUser,
 } from "@/content/staff";
-import { ExternalLink } from "./ExternalLink";
-import { SectionTitle } from "./SectionTitle";
+import { ExternalLink } from "@/components/ExternalLink";
+import { SectionTitle } from "@/components/SectionTitle";
 import { panel } from "@/components/ui";
 import { withBasePath } from "@/lib/asset";
 

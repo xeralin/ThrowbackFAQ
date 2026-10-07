@@ -1,5 +1,6 @@
 const discordInvite = "r6s-operation-throwback-1092820800203141130";
 const launcherRepoUrl = "https://github.com/xeralin/ThrowbackLauncher";
+const jvavRepoUrl = "https://github.com/JOJOVAV/r6-downloader";
 
 export const site = {
   name: "Throwback FAQ",
@@ -14,9 +15,8 @@ export const site = {
   launcherRepoUrl,
   installerUrl: `${launcherRepoUrl}/releases/latest/download/Installer.exe`,
   appImageUrl: `${launcherRepoUrl}/releases/latest/download/ThrowbackLauncher.AppImage`,
-  jvavDownloaderUrl: "https://github.com/JOJOVAV/r6-downloader/releases/latest",
-  indevReleasesUrl:
-    "https://discord.com/channels/1321476389815324733/1498791837346037861",
+  jvavDownloaderUrl: `${jvavRepoUrl}/releases/latest`,
+  jvavBatUrl: `${jvavRepoUrl}/releases/latest/download/r6downloader.bat`,
   helpChannelUrl:
     "https://discord.com/channels/1092820800203141130/1106957787516379267",
   downloadsChannelUrl:
@@ -26,4 +26,5 @@ export const site = {
   depotDownloaderRepoUrl: "https://github.com/SteamRE/DepotDownloader",
   oldLoaderRepoUrl: "https://github.com/lungu19/ThrowbackLoader",
   radminVpnUrl: "https://radmin-vpn.com/",
+  vcRedistUrl: "https://aka.ms/vc14/vc_redist.x64.exe",
 } as const;

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ExternalLink } from "./ExternalLink";
+import { ExternalLink } from "@/components/ExternalLink";
 
 const base =
   "mb-[0.4rem] mr-2 inline-flex items-center rounded-md px-[1.1rem] font-mono text-label indent-[0.08em] tracking-[0.08em] no-underline shadow-[0_2px_14px_transparent] transition duration-200";

@@ -71,7 +71,6 @@
   --animate-fade-up: fadeUp 0.35s ease;
   --animate-fade-in: fadeIn 0.35s ease;
   --animate-hero-glow: heroGlow 5s ease-in-out infinite;
-  --animate-flicker: flicker 7s infinite;
   --animate-scan-move: scanMove 8s linear infinite;
   --animate-blink: blink 1s step-end infinite;
   @keyframes fadeUp {
@@ -99,31 +98,6 @@
     }
     50% {
       opacity: 0.55;
-    }
-  }
-  @keyframes flicker {
-    0%,
-    93%,
-    100% {
-      opacity: 1;
-    }
-    94% {
-      opacity: 0.3;
-    }
-    95% {
-      opacity: 1;
-    }
-    96% {
-      opacity: 0.1;
-    }
-    97% {
-      opacity: 0.9;
-    }
-    98% {
-      opacity: 0.4;
-    }
-    99% {
-      opacity: 1;
     }
   }
   @keyframes scanMove {
@@ -187,7 +161,6 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-body);
-    font-weight: 400;
     line-height: normal;
     overflow-x: hidden;
     user-select: none;
@@ -320,7 +293,6 @@
   }
   .prose a {
     color: var(--color-link);
-    text-decoration: none;
   }
   .prose a:hover {
     text-decoration: underline;

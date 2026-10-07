@@ -110,7 +110,7 @@ export function Sidebar({
           <span className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/90 via-black/55 to-transparent" />
           <span className="absolute inset-x-0 bottom-0 flex items-end p-2">
             <span className="font-display text-[0.8rem] font-bold leading-none text-text">
-              Discord
+              Join Discord
             </span>
           </span>
         </ExternalLink>

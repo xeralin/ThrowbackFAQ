@@ -17,7 +17,7 @@ export default function ExtendedRules() {
     <>
       <FaqHero page="extendedRules" />
 
-      <Note className="mb-6">
+      <Note>
         By participating in the Operation Throwback Discord server, you agree to
         follow these rules at all times.
       </Note>

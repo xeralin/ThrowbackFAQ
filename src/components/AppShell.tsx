@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Sidebar } from "./Sidebar";
-import { Topbar } from "./Topbar";
-import { ScrollReveal } from "./ScrollReveal";
+import { Sidebar } from "@/components/Sidebar";
+import { Topbar } from "@/components/Topbar";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { breadcrumbFor, normalizePath } from "@/config/nav";
 
 const bar =

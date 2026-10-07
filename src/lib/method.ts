@@ -13,6 +13,7 @@ if (
 ) {
   try {
     sessionStorage.setItem(STORAGE_KEY, "downloader");
+    sessionStorage.setItem("platform", "windows");
   } catch {}
 }
 

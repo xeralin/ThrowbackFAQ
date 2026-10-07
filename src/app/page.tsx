@@ -23,7 +23,7 @@ export default function Home() {
         description={site.description}
       />
 
-      <SectionTitle>Support & Troubleshooting</SectionTitle>
+      <SectionTitle>Support</SectionTitle>
       <CardGrid>
         <NavCard href="/getting-started" {...FAQ_PAGES.gettingStarted} />
         <NavCard href="/common-errors" {...FAQ_PAGES.commonErrors} />
