@@ -142,7 +142,7 @@ export const users: StaffUser[] = [
   },
   {
     name: "ACE",
-    roles: ["helper"],
+    roles: ["moderator", "helper"],
     avatar: "/media/pfp/ace.webp",
     sections: ["staff"],
   },
