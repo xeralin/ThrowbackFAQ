@@ -81,7 +81,6 @@ function LauncherSteps() {
               Enable <strong>Allow executing file as program</strong> in the
               file properties to make it executable
             </li>
-            <li>Open it</li>
           </ol>
         </OnLinux>
       </Prose>
