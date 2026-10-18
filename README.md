@@ -8,7 +8,7 @@
 
 **Building**
 
-For a local run you need [pnpm](https://pnpm.io/).
+For a local run you need [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/).
 
 ```sh
 git clone https://github.com/xeralin/ThrowbackFAQ.git
