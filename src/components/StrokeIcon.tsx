@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+export const CHEVRON_RIGHT = "m9 6 6 6-6 6";
+
 export const PROTON = "m4 17 6-6-6-6M12 19h8";
 
 export function StrokeIcon({

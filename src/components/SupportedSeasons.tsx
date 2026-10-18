@@ -1,49 +1,57 @@
 "use client";
 
 import { useState } from "react";
-import { OptionGroup, type Option } from "@/components/OptionGroup";
 import { Prose } from "@/components/Prose";
 import { SeasonTable } from "@/components/SeasonTable";
+import { SectionTitle } from "@/components/SectionTitle";
+import { CHEVRON_RIGHT, StrokeIcon } from "@/components/StrokeIcon";
 import {
-  FULL_SUPPORT,
-  FULL_SUPPORT_EVENTS,
-  UNLOCK_ALL_SEASONS,
-  yearPairs,
-} from "@/config/liberator-builds";
-
-type SupportView = "full" | "unlock";
-
-const VIEWS: Option<SupportView>[] = [
-  { id: "full", label: "Support" },
-  { id: "unlock", label: "Unlock All" },
-];
+  columnItem,
+  columnItemActive,
+  columnItemIdle,
+  panel,
+} from "@/components/ui";
+import { SUPPORT, seasonYear, yearGroups } from "@/config/liberator-builds";
 
 export function SupportedSeasons() {
-  const [view, setView] = useState<SupportView>("full");
+  const [year, setYear] = useState(0);
+  const groups = yearGroups(SUPPORT);
   return (
     <>
-      <div className="mb-4 mt-8">
-        <OptionGroup
-          options={VIEWS}
-          active={view}
-          onSelect={setView}
-          label="Support"
-        />
+      <SectionTitle>Support</SectionTitle>
+      <div className="flex flex-wrap items-start gap-x-4">
+        <ul className={`mb-5 w-[150px] p-2 ${panel}`}>
+          {groups.map((rows, index) => (
+            <li key={rows[0].build}>
+              <button
+                type="button"
+                onClick={() => setYear(index)}
+                className={`${columnItem} ${index === year ? columnItemActive : columnItemIdle}`}
+              >
+                <span className="min-w-0 flex-1">
+                  Year {seasonYear(rows[0])}
+                </span>
+                <StrokeIcon d={CHEVRON_RIGHT} className="size-3.5 shrink-0" />
+              </button>
+            </li>
+          ))}
+        </ul>
+        <Prose>
+          <div className="grid">
+            {groups.map((rows, index) => (
+              <div
+                key={rows[0].build}
+                className={`[grid-area:1/1] ${index === year ? "" : "invisible"}`}
+              >
+                <SeasonTable
+                  rows={rows}
+                  showEvent={rows.some((row) => row.event)}
+                />
+              </div>
+            ))}
+          </div>
+        </Prose>
       </div>
-      <Prose>
-        <div className="flex flex-wrap items-start gap-x-4">
-          {view === "full" ? (
-            <>
-              <SeasonTable rows={FULL_SUPPORT} />
-              <SeasonTable rows={FULL_SUPPORT_EVENTS} showEvent />
-            </>
-          ) : (
-            yearPairs(UNLOCK_ALL_SEASONS).map((rows) => (
-              <SeasonTable key={rows[0].build} rows={rows} />
-            ))
-          )}
-        </div>
-      </Prose>
     </>
   );
 }

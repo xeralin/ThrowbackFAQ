@@ -32,7 +32,7 @@ export const FAQ_PAGES = {
   },
   liberator: {
     title: "Liberator",
-    description: "Unlock all cosmetics, add extra playlists and modifications.",
+    description: "Unlock all cosmetics, playlists and modifications.",
     tag: "Tools & Mods",
     corner: "LIB",
   },

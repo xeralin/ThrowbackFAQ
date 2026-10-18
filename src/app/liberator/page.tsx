@@ -45,19 +45,18 @@ const faqs: FaqItem[] = [
     a: (
       <p>
         Since Y8S3 Heavy Mettle, operators are locked by default. Wait until the
-        Liberator page in the Launcher shows <AppliedIcon /> next to the{" "}
-        <strong>Liberator</strong> switch.
+        Liberator page in the Launcher shows <AppliedIcon />.
       </p>
     ),
   },
   {
-    id: "unsupported-build",
+    id: "build-support",
     q: "Why is there a warning next to the Liberator switch?",
     a: (
       <p>
         Your game build is not supported. The Liberator only supports specific
-        game builds. The <strong>Support</strong> and{" "}
-        <strong>Unlock All</strong> tabs above list every supported build.
+        game builds. The <strong>Support</strong> section above lists every
+        supported build.
       </p>
     ),
   },
@@ -73,7 +72,7 @@ export default function Liberator() {
         <ExternalLink href={site.jvavDownloaderUrl}>
           JVAV&apos;s Downloader
         </ExternalLink>{" "}
-        is available in{" "}
+        is still available in{" "}
         <ExternalLink href={site.downloadsChannelUrl}>
           <code>#downloads</code>
         </ExternalLink>
