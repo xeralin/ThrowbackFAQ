@@ -59,7 +59,7 @@ const faqs: FaqItem[] = [
     ),
   },
   {
-    id: "find-game",
+    id: "year-1",
     q: "Why does the hosted game not appear in Join Local in Year 1?",
     platform: "windows",
     a: (

@@ -214,6 +214,14 @@
   }
 }
 
+@utility text-box-cap {
+  padding-block: var(--cap-pad, 0px);
+  @supports (text-box: trim-both cap alphabetic) {
+    text-box: trim-both cap alphabetic;
+    padding-block: calc(var(--cap-pad, 0px) + (1lh - 1cap) / 2);
+  }
+}
+
 @utility code-chip {
   white-space: nowrap;
   font-size: 11px;
@@ -350,6 +358,8 @@
     letter-spacing: 0.2em;
     color: var(--color-text-muted);
     background: var(--color-surface-2);
+    --cap-pad: 0.2rem;
+    @apply text-box-cap;
   }
   .prose td {
     color: var(--color-text-muted);
@@ -468,6 +478,7 @@
     line-height: 1.3;
     min-width: 0;
     padding-right: calc(var(--copy-icon) + 2 * var(--copy-pad));
+    @apply text-box-cap;
   }
   .question-chevron {
     width: 18px;

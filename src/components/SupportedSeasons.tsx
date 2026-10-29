@@ -9,6 +9,7 @@ import {
   columnItem,
   columnItemActive,
   columnItemIdle,
+  columnLabel,
   panel,
 } from "@/components/ui";
 import { SUPPORT, seasonYear, yearGroups } from "@/config/liberator-builds";
@@ -28,9 +29,7 @@ export function SupportedSeasons() {
                 onClick={() => setYear(index)}
                 className={`${columnItem} ${index === year ? columnItemActive : columnItemIdle}`}
               >
-                <span className="min-w-0 flex-1">
-                  Year {seasonYear(rows[0])}
-                </span>
+                <span className={columnLabel}>Year {seasonYear(rows[0])}</span>
                 <StrokeIcon d={CHEVRON_RIGHT} className="size-3.5 shrink-0" />
               </button>
             </li>

@@ -102,7 +102,7 @@ export default function CheatEngine() {
         {tables.map((table) => (
           <div key={table.file} className={`${panel} p-5`}>
             <h3 className={heading}>{table.name}</h3>
-            <p className="mb-3 mt-2 text-ui leading-[1.5] text-text-muted">
+            <p className="mb-3 mt-2 text-ui leading-normal text-text-muted">
               {table.description}
             </p>
             <LinkButton
