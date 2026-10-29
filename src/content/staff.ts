@@ -105,7 +105,7 @@ export const users: StaffUser[] = [
   },
   {
     name: "Techtical",
-    roles: ["moderator", "seniorhelper", "helper"],
+    roles: ["seniorhelper", "helper"],
     avatar: "/media/pfp/techtical.webp",
     sections: ["staff"],
   },
@@ -144,6 +144,24 @@ export const users: StaffUser[] = [
     name: "ACE",
     roles: ["moderator", "helper"],
     avatar: "/media/pfp/ace.webp",
+    sections: ["staff"],
+  },
+  {
+    name: "Pvppy",
+    roles: ["helper"],
+    avatar: "/media/pfp/pvppy.webp",
+    sections: ["staff"],
+  },
+  {
+    name: "puppyboy",
+    roles: ["helper"],
+    avatar: "/media/pfp/puppyboy.webp",
+    sections: ["staff"],
+  },
+  {
+    name: "Snacers",
+    roles: ["moderator", "developer"],
+    avatar: "/media/pfp/snacers.webp",
     sections: ["staff"],
   },
   {
