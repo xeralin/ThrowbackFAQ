@@ -49,17 +49,6 @@ const faqs: FaqItem[] = [
       </p>
     ),
   },
-  {
-    id: "build-support",
-    q: "Why is there a warning next to the Liberator switch?",
-    a: (
-      <p>
-        Your game build is not supported. The Liberator only supports specific
-        game builds. The <strong>Support</strong> section above lists every
-        supported build.
-      </p>
-    ),
-  },
 ];
 
 export default function Liberator() {
