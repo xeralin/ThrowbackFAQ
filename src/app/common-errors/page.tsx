@@ -7,7 +7,6 @@ import { ContentImage } from "@/components/ContentImage";
 import { ExternalLink } from "@/components/ExternalLink";
 import { MethodSwitch } from "@/components/MethodSwitch";
 import { OnDownloader, OnLauncher } from "@/components/OnMethod";
-import { OnWindows } from "@/components/OnPlatform";
 import { withBasePath } from "@/lib/asset";
 import { pageMetadata } from "@/lib/metadata";
 import { FAQ_PAGES } from "@/config/faq";
@@ -27,39 +26,6 @@ const faqs: FaqItem[] = [
         External overlays like Overwolf may be incompatible with the old R6S
         build, so disable them before launching the game.
       </p>
-    ),
-  },
-  {
-    id: "download-errors",
-    q: "I am getting errors while downloading. What should I do?",
-    method: "launcher",
-    a: (
-      <>
-        <p>
-          Most errors during download do not affect the final result and can be
-          ignored.
-        </p>
-        <ul>
-          <li>
-            <strong>Encountered error downloading chunk</strong> — Safe to
-            ignore, since the Steam servers were briefly unreachable and the
-            Launcher retries automatically
-          </li>
-          <li>
-            <strong>Depot is not available</strong> — You do not own R6S on
-            Steam
-          </li>
-          <li>
-            <strong>Failed to allocate file</strong> — Free up storage space on
-            the install drive
-          </li>
-          <li>
-            <strong>The process cannot access the file</strong> — Close any
-            program that might be interfering, such as
-            <OnWindows> your antivirus or</OnWindows> another game instance
-          </li>
-        </ul>
-      </>
     ),
   },
   {
@@ -98,6 +64,7 @@ const faqs: FaqItem[] = [
   {
     id: "controller-input",
     q: "Why is my game stuck on controller input?",
+    method: "downloader",
     a: (
       <ol>
         <li>
@@ -168,6 +135,33 @@ const faqs: FaqItem[] = [
           </li>
           <li>Restart your computer and try launching the game again</li>
         </ol>
+      </>
+    ),
+  },
+  {
+    id: "no-proton",
+    q: (
+      <>
+        Why do I get <em>No Proton found</em>?
+      </>
+    ),
+    platform: "linux",
+    a: (
+      <>
+        <p>The Launcher runs each season with Proton from Steam.</p>
+        <ol>
+          <li>
+            Install Steam from your package manager, not as Flatpak or Snap
+          </li>
+          <li>
+            Install <strong>Proton Experimental</strong> under{" "}
+            <strong>Library</strong> &gt; <strong>Tools</strong> in Steam
+          </li>
+        </ol>
+        <Note className="my-3">
+          You can also place any Proton build in{" "}
+          <code>~/.local/share/ThrowbackLauncher/bin/proton</code>.
+        </Note>
       </>
     ),
   },
@@ -251,65 +245,33 @@ const faqs: FaqItem[] = [
         <em>Preparing Content</em>. What should I do?
       </>
     ),
+    method: "downloader",
     a: (
       <ol>
         <li>
-          <strong>Restart the game</strong> — Close it completely
-          <OnLauncher>
-            {" "}
-            with <strong>Stop</strong> in the Launcher
-          </OnLauncher>
-          <OnWindows>
-            <OnLauncher> or</OnLauncher> via Task Manager
-          </OnWindows>{" "}
-          and try again
+          <strong>Restart the game</strong> — Close it completely via Task
+          Manager and try again
         </li>
-        <OnWindows>
-          <OnDownloader>
-            <li>
-              <strong>Check your antivirus</strong> — If files were removed,
-              exclude your R6S folder (see{" "}
-              <Link href="/getting-started/?jvav#antivirus-exclusion">
-                Getting Started
-              </Link>
-              )
-            </li>
-          </OnDownloader>
-          <OnLauncher>
-            <li>
-              <strong>Check your antivirus</strong> — If files were removed,
-              exclude the Launcher and library folders (see{" "}
-              <Link href="/getting-started#antivirus-exclusion">
-                Getting Started
-              </Link>
-              )
-            </li>
-          </OnLauncher>
-        </OnWindows>
-        <OnDownloader>
-          <li>
-            <strong>Verify your files</strong> — Use{" "}
-            <strong>Verify the game</strong> in the downloader to check for
-            missing or corrupted files
-          </li>
-        </OnDownloader>
-        <OnLauncher>
-          <li>
-            <strong>Clear the app cache</strong> — Use <strong>Clear</strong>{" "}
-            next to <strong>App cache</strong> in <strong>Settings</strong>
-          </li>
-          <li>
-            <strong>Verify your files</strong> — Use <strong>Verify</strong> in
-            the <strong>Manage</strong> tab of the season to check for missing
-            or corrupted files
-          </li>
-        </OnLauncher>
+        <li>
+          <strong>Check your antivirus</strong> — If files were removed, exclude
+          your R6S folder (see{" "}
+          <Link href="/getting-started/?jvav#antivirus-exclusion">
+            Getting Started
+          </Link>
+          )
+        </li>
+        <li>
+          <strong>Verify your files</strong> — Use{" "}
+          <strong>Verify the game</strong> in the downloader to check for
+          missing or corrupted files
+        </li>
       </ol>
     ),
   },
   {
     id: "sku-rus",
     q: "My game is in Russian. How do I switch to English?",
+    method: "downloader",
     a: (
       <>
         <p>
@@ -347,6 +309,7 @@ const faqs: FaqItem[] = [
         Why do I get a <em>User profile loading failed</em> error?
       </>
     ),
+    method: "downloader",
     a: (
       <p>
         This error is expected and does not affect gameplay. Click{" "}
