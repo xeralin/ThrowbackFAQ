@@ -52,7 +52,7 @@ function LauncherSteps() {
           <p>
             Download{" "}
             <a href={site.installerUrl}>
-              <code>Installer.exe</code>
+              <code>ThrowbackLauncher.exe</code>
             </a>{" "}
             and run it. <a href="#browser-block">Follow these steps</a> if your
             browser blocks the download.

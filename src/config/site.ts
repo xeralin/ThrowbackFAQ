@@ -5,7 +5,7 @@ const jvavRepoUrl = "https://github.com/JOJOVAV/r6-downloader";
 export const site = {
   name: "Throwback FAQ",
   description:
-    "Your guide to downloading, setting up, and playing older Rainbow Six Siege seasons.",
+    "Your guide to downloading and playing older Rainbow Six Siege seasons.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://throwback-faq.example",
   heroImage: "/media/throwback.webp",
   ogImage: "/media/og.webp",
@@ -13,7 +13,7 @@ export const site = {
   discordInvite,
   discordUrl: `https://discord.gg/${discordInvite}`,
   launcherRepoUrl,
-  installerUrl: `${launcherRepoUrl}/releases/latest/download/Installer.exe`,
+  installerUrl: `${launcherRepoUrl}/releases/latest/download/ThrowbackLauncher.exe`,
   appImageUrl: `${launcherRepoUrl}/releases/latest/download/ThrowbackLauncher.AppImage`,
   jvavDownloaderUrl: `${jvavRepoUrl}/releases/latest`,
   jvavBatUrl: `${jvavRepoUrl}/releases/latest/download/r6downloader.bat`,
