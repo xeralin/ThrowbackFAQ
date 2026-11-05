@@ -22,12 +22,7 @@ export function MethodSwitch() {
       }`}
     >
       <div className="overflow-hidden">
-        <OptionGroup
-          options={METHODS}
-          active={method}
-          onSelect={setMethod}
-          label="Method"
-        />
+        <OptionGroup options={METHODS} active={method} onSelect={setMethod} />
       </div>
     </div>
   );

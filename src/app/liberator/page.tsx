@@ -18,11 +18,7 @@ export const metadata: Metadata = pageMetadata({
 
 function AppliedIcon() {
   return (
-    <span
-      role="img"
-      aria-label="Unlock All has been applied"
-      className="inline-flex align-[-0.2em]"
-    >
+    <span className="inline-flex align-[-0.2em]">
       <StrokeIcon className="size-[1.22em] text-success">
         <rect
           x="3"

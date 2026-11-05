@@ -40,7 +40,6 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
   const [pulse, setPulse] = useState(false);
   const [copied, setCopied] = useState(0);
   const copyTimer = useRef(0);
-  const answerId = `faq-${item.id}-answer`;
 
   function copyLink() {
     const url = `${window.location.origin}${window.location.pathname}${query}#${item.id}`;
@@ -87,8 +86,6 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
         <button
           type="button"
           className="question-header"
-          aria-expanded={open}
-          aria-controls={answerId}
           onClick={() => setOpen((value) => !value)}
         >
           <span className="question-title">{item.q}</span>
@@ -97,7 +94,6 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
         <button
           type="button"
           className={copied > 0 ? "question-copy copied" : "question-copy"}
-          aria-label={copied > 0 ? "Link copied" : "Copy link"}
           onClick={copyLink}
         >
           <StrokeIcon
@@ -113,7 +109,7 @@ function Item({ item, query }: { item: FaqItem; query: string }) {
           )}
         </button>
       </div>
-      <div id={answerId} className="answer" inert={!open}>
+      <div className="answer" inert={!open}>
         <div className="answer-clip">
           <div className="answer-inner prose">{item.a}</div>
         </div>

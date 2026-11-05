@@ -3,7 +3,6 @@ import { withBasePath } from "@/lib/asset";
 
 type ContentImageProps = {
   src: string;
-  alt: string;
   width: number;
   height: number;
   className?: string;
@@ -11,7 +10,6 @@ type ContentImageProps = {
 
 export function ContentImage({
   src,
-  alt,
   width,
   height,
   className,
@@ -19,7 +17,7 @@ export function ContentImage({
   return (
     <Image
       src={withBasePath(src)}
-      alt={alt}
+      alt=""
       width={width}
       height={height}
       className={className}

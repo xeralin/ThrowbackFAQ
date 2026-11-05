@@ -21,9 +21,5 @@ export const stepList =
   "mb-0 pl-[1.15rem] text-[0.78rem] leading-[1.45] [&>li:last-child]:mb-0";
 
 export function BlinkCursor() {
-  return (
-    <span aria-hidden className="ml-px inline-block animate-blink">
-      _
-    </span>
-  );
+  return <span className="ml-px inline-block animate-blink">_</span>;
 }

@@ -63,7 +63,6 @@ function LauncherSteps() {
           </p>
           <ContentImage
             src="/media/others/smartscreen-run-anyway.webp"
-            alt="Windows SmartScreen blocking the installer, then More info and Run anyway"
             width={1451}
             height={1360}
             className="max-w-[300px] rounded-md"
@@ -96,7 +95,6 @@ function LauncherSteps() {
           </p>
           <ContentImage
             src="/media/others/installer.webp"
-            alt="The Throwback Launcher installer with the exclusion steps and the Launcher folder"
             width={920}
             height={568}
             className="max-w-[460px] rounded-none border-0"
@@ -119,7 +117,6 @@ function JvavSteps() {
 
         <ContentVideo
           src="/media/game-folder.webm"
-          label="Creating an R6S folder"
           width={1920}
           height={1080}
         />
@@ -139,7 +136,6 @@ function JvavSteps() {
         <ExclusionSteps folder="your R6S folder" />
         <ContentVideo
           src="/media/antivirus-exclusion.webm"
-          label="Adding an antivirus exclusion"
           width={1920}
           height={1080}
         />

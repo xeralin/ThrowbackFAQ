@@ -78,7 +78,7 @@ export function Sidebar({
                     key={item.href}
                     href={item.href}
                     onClick={onNavigate}
-                    aria-current={active ? "page" : undefined}
+                    data-current={active || undefined}
                     className={`nav-link flex items-center justify-between rounded-md px-3 py-[0.55rem] text-[0.9rem] font-medium transition-[background-color,color,translate] duration-200 ${
                       active
                         ? "border-l-2 border-brand bg-brand-dim text-text shadow-[inset_0_0_18px_-5px_var(--color-brand-glow-soft)]"

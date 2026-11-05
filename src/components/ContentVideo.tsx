@@ -4,20 +4,11 @@ type ContentVideoProps = {
   src: string;
   width: number;
   height: number;
-  label: string;
 };
 
-export function ContentVideo({ src, width, height, label }: ContentVideoProps) {
+export function ContentVideo({ src, width, height }: ContentVideoProps) {
   return (
-    <video
-      width={width}
-      height={height}
-      aria-label={label}
-      autoPlay
-      loop
-      muted
-      playsInline
-    >
+    <video width={width} height={height} autoPlay loop muted playsInline>
       <source src={withBasePath(src)} type="video/webm" />
     </video>
   );

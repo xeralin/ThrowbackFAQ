@@ -22,8 +22,6 @@ export function StrokeIcon({
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
-      aria-hidden="true"
-      focusable="false"
     >
       {d ? <path d={d} /> : children}
     </svg>

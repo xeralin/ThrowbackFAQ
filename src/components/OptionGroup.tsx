@@ -17,12 +17,10 @@ export function OptionGroup<T extends string>({
   options,
   active,
   onSelect,
-  label,
 }: {
   options: Option<T>[];
   active: T;
   onSelect: (id: T) => void;
-  label: string;
 }) {
   const refs = useRef<Record<string, HTMLButtonElement | null>>({});
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
@@ -51,12 +49,7 @@ export function OptionGroup<T extends string>({
 
   return (
     <div className="border-b border-border">
-      <div
-        role="radiogroup"
-        aria-label={label}
-        onKeyDown={onKeyDown}
-        className="relative flex flex-wrap gap-1"
-      >
+      <div onKeyDown={onKeyDown} className="relative flex flex-wrap gap-1">
         {options.map((option) => (
           <button
             key={option.id}
@@ -64,8 +57,6 @@ export function OptionGroup<T extends string>({
               refs.current[option.id] = el;
             }}
             type="button"
-            role="radio"
-            aria-checked={active === option.id}
             tabIndex={option.id === active ? 0 : -1}
             onClick={() => onSelect(option.id)}
             className={`px-4 py-2 font-mono text-label uppercase tracking-[0.12em] transition-colors ${
@@ -78,7 +69,6 @@ export function OptionGroup<T extends string>({
           </button>
         ))}
         <span
-          aria-hidden
           className="pointer-events-none absolute -bottom-px h-0.5 bg-brand transition-[left,width] duration-300 ease-out"
           style={{ left: indicator.left, width: indicator.width }}
         />
