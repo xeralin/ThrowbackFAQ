@@ -270,6 +270,31 @@ const faqs: FaqItem[] = [
   },
   {
     id: "sku-rus",
+    q: (
+      <>
+        Why do I get <em>Your R6S license is not supported</em>?
+      </>
+    ),
+    method: "launcher",
+    a: (
+      <>
+        <p>
+          This error means your Steam account owns a regional version of the
+          game called SKU RUS, which is only sold in the countries below. The
+          Launcher does not support it, so you need a Steam account that owns
+          the worldwide version.
+        </p>
+        <ContentImage
+          src="/media/others/sku-rus.webp"
+          width={744}
+          height={90}
+          className="rounded-none border-0"
+        />
+      </>
+    ),
+  },
+  {
+    id: "sku-rus",
     q: "My game is in Russian. How do I switch to English?",
     method: "downloader",
     a: (
@@ -295,9 +320,9 @@ const faqs: FaqItem[] = [
         </ol>
         <ContentImage
           src="/media/others/sku-rus.webp"
-          alt="SKU RUS regions map"
-          width={768}
-          height={112}
+          width={744}
+          height={90}
+          className="rounded-none border-0"
         />
       </>
     ),
