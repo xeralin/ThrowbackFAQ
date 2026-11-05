@@ -165,6 +165,12 @@ export const users: StaffUser[] = [
     sections: ["staff"],
   },
   {
+    name: "R6WeaponComponent",
+    roles: ["developer"],
+    avatar: "/media/pfp/r6weaponcomponent.webp",
+    sections: ["staff"],
+  },
+  {
     name: "Puppetino",
     tags: ["FAQ", "Legacy FAQ", "Discord Bot"],
     github: "https://github.com/Puppetino",
