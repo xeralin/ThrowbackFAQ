@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/Sidebar";
 import { Topbar } from "@/components/Topbar";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { breadcrumbFor, normalizePath } from "@/config/nav";
 
 const bar =
   "block h-0.5 w-4.5 rounded-sm bg-text transition-transform duration-200 ease-in-out";
@@ -13,7 +12,6 @@ const bar =
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     function clean() {
@@ -32,29 +30,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     window.addEventListener("hashchange", clean);
     return () => window.removeEventListener("hashchange", clean);
   }, [pathname]);
-
-  useEffect(() => {
-    function onKey(event: KeyboardEvent) {
-      if (event.key !== "Escape") return;
-      const target = event.target;
-      if (
-        target instanceof HTMLInputElement ||
-        target instanceof HTMLTextAreaElement
-      )
-        return;
-      if (open) {
-        setOpen(false);
-        return;
-      }
-      const current = normalizePath(pathname);
-      const crumbs = breadcrumbFor(current);
-      const parent = crumbs.length > 1 ? crumbs[crumbs.length - 2].href : null;
-      if (!parent || parent === current) return;
-      router.push(parent);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [pathname, router, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -85,8 +60,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         setOpen(false);
       }
     }
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
     document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onClick);
+      window.removeEventListener("keydown", onKey);
+    };
   }, [open]);
 
   return (
