@@ -4,7 +4,6 @@ import { Note } from "@/components/Note";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Prose } from "@/components/Prose";
 import { ContentImage } from "@/components/ContentImage";
-import { ContentVideo } from "@/components/ContentVideo";
 import { ExternalLink } from "@/components/ExternalLink";
 import { ExclusionSteps } from "@/components/ExclusionSteps";
 import { MethodSwitch } from "@/components/MethodSwitch";
@@ -63,8 +62,8 @@ function LauncherSteps() {
           </p>
           <ContentImage
             src="/media/others/smartscreen-run-anyway.webp"
-            width={1451}
-            height={1360}
+            width={1273}
+            height={1191}
             className="max-w-[300px] rounded-md"
           />
         </OnWindows>
@@ -111,12 +110,12 @@ function JvavSteps() {
       <SectionTitle flush>Preparation</SectionTitle>
       <Prose>
         <p>
-          Create a dedicated folder for the game on whichever drive you want to
-          store it. We recommend naming it <strong>R6S</strong>.
+          Create a dedicated folder on whichever drive you want to store the
+          game. We recommend naming it <strong>R6S</strong>.
         </p>
 
-        <ContentVideo
-          src="/media/game-folder.webm"
+        <ContentImage
+          src="/media/others/game-folder.webp"
           width={1920}
           height={1080}
         />
@@ -134,8 +133,8 @@ function JvavSteps() {
           Windows Security so it does not interfere with game files.
         </p>
         <ExclusionSteps folder="your R6S folder" />
-        <ContentVideo
-          src="/media/antivirus-exclusion.webm"
+        <ContentImage
+          src="/media/others/antivirus-exclusion.webp"
           width={1920}
           height={1080}
         />
@@ -168,7 +167,7 @@ function JvavSteps() {
           </li>
           <li>
             Navigate to your R6S folder &gt; <code>Downloads</code> &gt; your
-            season folder
+            game folder
           </li>
           <li>
             Run <code>LaunchR6.bat</code> to launch the game
