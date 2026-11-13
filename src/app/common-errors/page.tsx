@@ -7,14 +7,11 @@ import { ContentImage } from "@/components/ContentImage";
 import { ExternalLink } from "@/components/ExternalLink";
 import { MethodSwitch } from "@/components/MethodSwitch";
 import { OnDownloader, OnLauncher } from "@/components/OnMethod";
+import { OnWindows } from "@/components/OnPlatform";
 import { withBasePath } from "@/lib/asset";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.commonErrors,
-  path: "/common-errors",
-});
+export const metadata: Metadata = pageMetadata("common-errors");
 
 const faqs: FaqItem[] = [
   {
@@ -22,10 +19,75 @@ const faqs: FaqItem[] = [
     q: "Why does my game keep crashing?",
     platform: "windows",
     a: (
-      <p>
-        External overlays like Overwolf may be incompatible with the old R6S
-        build, so disable them before launching the game.
-      </p>
+      <>
+        <p>
+          If your game crashes or you get an <code>MSVCRXXX.dll</code> or{" "}
+          <code>D3DCOMPILER_43.dll</code> error, follow these steps.
+        </p>
+        <ol>
+          <li>
+            Download{" "}
+            <a href="https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe">
+              <code>VisualCppRedist_AIO_x86_x64.exe</code>
+            </a>{" "}
+            and run it as administrator
+          </li>
+          <li>
+            Download the{" "}
+            <ExternalLink href="https://www.microsoft.com/en-US/download/details.aspx?id=35">
+              DirectX End-User Runtime Web Installer
+            </ExternalLink>{" "}
+            from Microsoft and run <code>dxwebsetup.exe</code>
+          </li>
+          <li>
+            Disable external overlays like Overwolf, since they may be
+            incompatible with the old R6S build
+          </li>
+          <li>Restart your computer and try launching the game again</li>
+        </ol>
+        <Note className="my-3">
+          If the problem persists, make sure Windows is fully up to date.
+        </Note>
+      </>
+    ),
+  },
+  {
+    id: "download-errors",
+    q: "I am getting errors while downloading. What should I do?",
+    method: "launcher",
+    a: (
+      <ul>
+        <li>
+          <strong>Could not connect to Steam</strong> — Check your internet
+          connection and try again, since the Steam servers may be briefly
+          unreachable
+        </li>
+        <li>
+          <strong>Too many login attempts</strong> — Steam is blocking further
+          logins, so wait a while before trying again
+        </li>
+        <li>
+          <strong>Steam login failed</strong> — Check your password and Steam
+          Guard code, then log in again
+        </li>
+        <li>
+          <strong>You do not own R6S on Steam</strong> — You need a Steam
+          account that owns R6S
+        </li>
+        <li>
+          <strong>A file is already in use</strong> — Close any program that
+          might be interfering, such as
+          <OnWindows> your antivirus or</OnWindows> another game instance
+        </li>
+        <li>
+          <strong>Not enough disk space</strong> — Free up storage space with
+          Shears or pick a different library
+        </li>
+        <li>
+          <strong>Download failed</strong> — Press <strong>Verify</strong> to
+          continue the download
+        </li>
+      </ul>
     ),
   },
   {
@@ -33,32 +95,26 @@ const faqs: FaqItem[] = [
     q: "I am getting errors while downloading. What should I do?",
     method: "downloader",
     a: (
-      <>
-        <p>
-          Most errors during download do not affect the final result and can be
-          ignored.
-        </p>
-        <ul>
-          <li>
-            <strong>Encountered error downloading chunk</strong> — Safe to
-            ignore, since the Steam servers were briefly unreachable and the
-            downloader retries automatically
-          </li>
-          <li>
-            <strong>Depot is not available</strong> — You do not own R6S on
-            Steam, or your account owns the regional SKU RUS version
-          </li>
-          <li>
-            <strong>Failed to allocate file</strong> — Free up storage space or
-            move the downloader to a different drive
-          </li>
-          <li>
-            <strong>The process cannot access the file</strong> — Close any
-            program that might be interfering, such as your antivirus or another
-            game instance
-          </li>
-        </ul>
-      </>
+      <ul>
+        <li>
+          <strong>Encountered error downloading chunk</strong> — Safe to ignore,
+          since the Steam servers were briefly unreachable and the downloader
+          retries automatically
+        </li>
+        <li>
+          <strong>Depot is not available</strong> — You do not own R6S on Steam,
+          or your account owns the regional SKU RUS version
+        </li>
+        <li>
+          <strong>Failed to allocate file</strong> — Free up storage space or
+          move the downloader to a different drive
+        </li>
+        <li>
+          <strong>The process cannot access the file</strong> — Close any
+          program that might be interfering, such as your antivirus or another
+          game instance
+        </li>
+      </ul>
     ),
   },
   {
@@ -76,66 +132,6 @@ const faqs: FaqItem[] = [
           restart without it and plug it back in afterwards
         </li>
       </ol>
-    ),
-  },
-  {
-    id: "msvcr-dll",
-    q: (
-      <>
-        How do I fix the <code>MSVCRXXX.dll</code> error?
-      </>
-    ),
-    platform: "windows",
-    a: (
-      <>
-        <p>
-          This error means your system is missing a required Microsoft Visual
-          C++ Redistributable package.
-        </p>
-        <ol>
-          <li>
-            Download{" "}
-            <a href="https://github.com/abbodi1406/vcredist/releases/latest/download/VisualCppRedist_AIO_x86_x64.exe">
-              <code>VisualCppRedist_AIO_x86_x64.exe</code>
-            </a>{" "}
-            and run it as administrator
-          </li>
-          <li>Restart your computer and try launching the game again</li>
-        </ol>
-        <Note className="my-3">
-          If the error persists, make sure Windows is fully up to date.
-        </Note>
-      </>
-    ),
-  },
-  {
-    id: "d3dcompiler-dll",
-    q: (
-      <>
-        How do I fix the <code>D3DCOMPILER_43.dll</code> error?
-      </>
-    ),
-    platform: "windows",
-    a: (
-      <>
-        <p>
-          This error means your system is missing a legacy DirectX library that
-          is not included in Windows.
-        </p>
-        <ol>
-          <li>
-            Download the{" "}
-            <ExternalLink href="https://www.microsoft.com/en-US/download/details.aspx?id=35">
-              DirectX End-User Runtime Web Installer
-            </ExternalLink>{" "}
-            from Microsoft
-          </li>
-          <li>
-            Run <code>dxwebsetup.exe</code>
-          </li>
-          <li>Restart your computer and try launching the game again</li>
-        </ol>
-      </>
     ),
   },
   {
@@ -172,7 +168,6 @@ const faqs: FaqItem[] = [
         How do I fix the <em>Could not find any R6 executable</em> error?
       </>
     ),
-    platform: "windows",
     method: "downloader",
     a: (
       <ol>
@@ -216,8 +211,7 @@ const faqs: FaqItem[] = [
         <ol>
           <OnDownloader>
             <li>
-              Delete the specified <code>.dll</code> file from your season
-              folder
+              Delete the specified <code>.dll</code> file from your game folder
             </li>
             <li>
               Use <strong>Verify the game</strong> in the downloader to restore
@@ -226,7 +220,7 @@ const faqs: FaqItem[] = [
           </OnDownloader>
           <OnLauncher>
             <li>
-              Delete the specified <code>.dll</code> file from the season folder
+              Delete the specified <code>.dll</code> file from the game folder
             </li>
             <li>
               Use <strong>Verify</strong> in the <strong>Manage</strong> tab of
@@ -315,7 +309,7 @@ const faqs: FaqItem[] = [
             </a>{" "}
             file
           </li>
-          <li>Move it into the season folder and replace the existing file</li>
+          <li>Move it into the game folder and replace the existing file</li>
           <li>Launch the game</li>
         </ol>
         <ContentImage
@@ -347,7 +341,7 @@ const faqs: FaqItem[] = [
 export default function CommonErrors() {
   return (
     <>
-      <FaqHero page="commonErrors" />
+      <FaqHero page="common-errors" />
       <MethodSwitch />
       <FaqAccordion items={faqs} />
     </>

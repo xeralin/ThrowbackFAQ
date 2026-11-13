@@ -10,12 +10,8 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { ExternalLink } from "@/components/ExternalLink";
 import { site } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.gettingStarted,
-  path: "/getting-started",
-});
+export const metadata: Metadata = pageMetadata("getting-started");
 
 const faqs: FaqItem[] = [
   {
@@ -66,7 +62,6 @@ const faqs: FaqItem[] = [
   {
     id: "antivirus-exclusion",
     q: "How do I add an antivirus exclusion?",
-    platform: "windows",
     method: "downloader",
     a: (
       <>
@@ -125,8 +120,8 @@ const faqs: FaqItem[] = [
       <>
         <p>
           Your username is stored in <code>ThrowbackLoader.toml</code> in your
-          season folder. Open it and edit the <code>username</code> field (max
-          16 characters).
+          game folder. Open it and edit the <code>username</code> field (max 16
+          characters).
         </p>
         <Note className="my-3">
           Make sure to save the file before launching the game.
@@ -142,16 +137,15 @@ const faqs: FaqItem[] = [
       <>
         <ol>
           <li>
-            Download the latest Loader <code>.zip</code> from the official{" "}
+            Download the latest <code>ThrowbackLoader.zip</code> from the
+            official{" "}
             <ExternalLink href={`${site.oldLoaderRepoUrl}/releases/latest`}>
               repository
-            </ExternalLink>
+            </ExternalLink>{" "}
+            and extract it
           </li>
           <li>
-            Extract the <code>.zip</code>
-          </li>
-          <li>
-            Copy the contents into your season folder and replace any existing
+            Copy the contents into your game folder and replace any existing
             files when prompted
           </li>
         </ol>
@@ -190,7 +184,7 @@ const faqs: FaqItem[] = [
 export default function GettingStarted() {
   return (
     <>
-      <FaqHero page="gettingStarted" />
+      <FaqHero page="getting-started" />
 
       <Note className="mb-8">
         This guide only works if you own R6S on Steam. Ubisoft Connect and Epic

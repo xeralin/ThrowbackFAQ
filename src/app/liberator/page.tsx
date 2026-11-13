@@ -8,13 +8,9 @@ import { SupportedSeasons } from "@/components/SupportedSeasons";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { StrokeIcon } from "@/components/StrokeIcon";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 import { site } from "@/config/site";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.liberator,
-  path: "/liberator",
-});
+export const metadata: Metadata = pageMetadata("liberator");
 
 function AppliedIcon() {
   return (
@@ -36,7 +32,7 @@ function AppliedIcon() {
 
 const faqs: FaqItem[] = [
   {
-    id: "operators-locked",
+    id: "locked-operators",
     q: "Why are my operators locked?",
     a: (
       <p>

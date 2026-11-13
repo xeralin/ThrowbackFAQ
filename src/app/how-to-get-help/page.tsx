@@ -6,17 +6,13 @@ import { Prose } from "@/components/Prose";
 import { ExternalLink } from "@/components/ExternalLink";
 import { site } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.howToGetHelp,
-  path: "/how-to-get-help",
-});
+export const metadata: Metadata = pageMetadata("how-to-get-help");
 
 export default function HowToGetHelp() {
   return (
     <>
-      <FaqHero page="howToGetHelp" />
+      <FaqHero page="how-to-get-help" />
 
       <Note>
         If you use the Launcher and run into errors, attach{" "}

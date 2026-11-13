@@ -6,13 +6,13 @@ type FaqPage = {
 };
 
 export const FAQ_PAGES = {
-  gettingStarted: {
+  "getting-started": {
     title: "Getting Started",
     description: "How to set up and download Operation Throwback.",
     tag: "Support",
     corner: "SETUP",
   },
-  commonErrors: {
+  "common-errors": {
     title: "Common Errors",
     description: "Solutions to the most encountered game issues.",
     tag: "Support",
@@ -24,7 +24,7 @@ export const FAQ_PAGES = {
     tag: "Support",
     corner: "MP",
   },
-  howToGetHelp: {
+  "how-to-get-help": {
     title: "How to Get Help",
     description: "What to include in a report so the staff can help you.",
     tag: "Support",
@@ -36,19 +36,19 @@ export const FAQ_PAGES = {
     tag: "Tools & Mods",
     corner: "LIB",
   },
-  heatedMetal: {
+  "heated-metal": {
     title: "Heated Metal",
     description: "An SDK with a map editor, scripting, unlock all and more.",
     tag: "Tools & Mods",
     corner: "HM",
   },
-  cheatEngine: {
+  "cheat-engine": {
     title: "Cheat Engine",
     description: "How to set up Cheat Engine and use the cheat tables.",
     tag: "Tools & Mods",
     corner: "CE",
   },
-  extendedRules: {
+  "extended-rules": {
     title: "Extended Rules",
     description: "The rules of the Operation Throwback Discord server.",
     tag: "Community",

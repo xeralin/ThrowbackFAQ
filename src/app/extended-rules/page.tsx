@@ -5,17 +5,13 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Prose } from "@/components/Prose";
 import { ExternalLink } from "@/components/ExternalLink";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.extendedRules,
-  path: "/extended-rules",
-});
+export const metadata: Metadata = pageMetadata("extended-rules");
 
 export default function ExtendedRules() {
   return (
     <>
-      <FaqHero page="extendedRules" />
+      <FaqHero page="extended-rules" />
 
       <Note>
         By participating in the Operation Throwback Discord server, you agree to

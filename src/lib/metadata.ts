@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
+import { FAQ_PAGES } from "@/config/faq";
 import { site } from "@/config/site";
 
-export function pageMetadata(opts: {
-  title: string;
-  description: string;
-  path: string;
-}): Metadata {
-  const canonical = `${opts.path}/`;
+export function pageMetadata(page: keyof typeof FAQ_PAGES): Metadata {
+  const { title, description } = FAQ_PAGES[page];
+  const canonical = `/${page}/`;
   return {
-    title: opts.title,
-    description: opts.description,
+    title,
+    description,
     alternates: { canonical },
     openGraph: {
       type: "website",

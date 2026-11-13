@@ -11,15 +11,11 @@ import { OnDownloader, OnLauncher } from "@/components/OnMethod";
 import { OnLinux, OnWindows } from "@/components/OnPlatform";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 import { site } from "@/config/site";
 import { stepBox, stepList } from "@/components/ui";
 import { PROTON, StrokeIcon } from "@/components/StrokeIcon";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.heatedMetal,
-  path: "/heated-metal",
-});
+export const metadata: Metadata = pageMetadata("heated-metal");
 
 const heatedMetalSeasons: SeasonRow[] = [
   {
@@ -70,7 +66,7 @@ const faqs: FaqItem[] = [
 export default function HeatedMetal() {
   return (
     <>
-      <FaqHero page="heatedMetal" />
+      <FaqHero page="heated-metal" />
 
       <MethodSwitch />
 
@@ -194,7 +190,7 @@ export default function HeatedMetal() {
         <ul>
           <li>
             Press <strong>F1</strong> to open the context menu (console,
-            inventory, and more)
+            inventory and more)
           </li>
           <li>
             Press <strong>F3</strong> to open the map editor

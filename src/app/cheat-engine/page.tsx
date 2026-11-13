@@ -9,14 +9,10 @@ import { PROTON, StrokeIcon } from "@/components/StrokeIcon";
 import { heading, panel } from "@/components/ui";
 import { pageMetadata } from "@/lib/metadata";
 import { withBasePath } from "@/lib/asset";
-import { FAQ_PAGES } from "@/config/faq";
 
 const CHEAT_ENGINE_URL = "https://cheatengine.org/downloads.php";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.cheatEngine,
-  path: "/cheat-engine",
-});
+export const metadata: Metadata = pageMetadata("cheat-engine");
 
 const tables = [
   {
@@ -28,7 +24,7 @@ const tables = [
   {
     name: "Y5S3 Shadow Legacy",
     description:
-      "Adds mass spawns, health and ammo tweaks, near-unlimited survivability, longer defuse timers, and outside-zone access to Terrorist Hunt.",
+      "Adds mass spawns, health and ammo tweaks, near-unlimited survivability, longer defuse timers and outside-zone access to Terrorist Hunt.",
     file: "y5s3-shadowlegacy.ct",
     download: "Y5S3_ShadowLegacy.ct",
   },
@@ -37,7 +33,7 @@ const tables = [
 export default function CheatEngine() {
   return (
     <>
-      <FaqHero page="cheatEngine" />
+      <FaqHero page="cheat-engine" />
 
       <SectionTitle>Setup</SectionTitle>
       <Prose>

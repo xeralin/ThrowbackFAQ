@@ -8,12 +8,8 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { OnLinux, OnWindows } from "@/components/OnPlatform";
 import { site } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
-import { FAQ_PAGES } from "@/config/faq";
 
-export const metadata: Metadata = pageMetadata({
-  ...FAQ_PAGES.multiplayer,
-  path: "/multiplayer",
-});
+export const metadata: Metadata = pageMetadata("multiplayer");
 
 const faqs: FaqItem[] = [
   {
