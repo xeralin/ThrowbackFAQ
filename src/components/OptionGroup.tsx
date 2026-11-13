@@ -23,12 +23,17 @@ export function OptionGroup<T extends string>({
   onSelect: (id: T) => void;
 }) {
   const refs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const [indicator, setIndicator] = useState({ left: 0, width: 0 });
+  const [indicator, setIndicator] = useState({ left: 0, top: 0, width: 0 });
 
   useLayoutEffect(() => {
     function remeasure() {
       const el = refs.current[active];
-      if (el) setIndicator({ left: el.offsetLeft, width: el.offsetWidth });
+      if (el)
+        setIndicator({
+          left: el.offsetLeft,
+          top: el.offsetTop + el.offsetHeight - 1,
+          width: el.offsetWidth,
+        });
     }
     remeasure();
     window.addEventListener("resize", remeasure);
@@ -69,8 +74,8 @@ export function OptionGroup<T extends string>({
           </button>
         ))}
         <span
-          className="pointer-events-none absolute -bottom-px h-0.5 bg-brand transition-[left,width] duration-300 ease-out"
-          style={{ left: indicator.left, width: indicator.width }}
+          className="pointer-events-none absolute h-0.5 bg-brand transition-[left,width] duration-300 ease-out"
+          style={indicator}
         />
       </div>
     </div>
