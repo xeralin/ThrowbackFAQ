@@ -56,15 +56,13 @@ export const users: StaffUser[] = [
   {
     name: "AKrisz2",
     roles: ["moderator", "developer"],
-    tags: ["R6S Downloader", "Liberator"],
-    github: "https://github.com/AKrisz2",
+    tags: ["Liberator"],
     avatar: "/media/pfp/akrisz2.webp",
     sections: ["staff"],
   },
   {
     name: "Benjaminstrike",
     roles: ["developer"],
-    tags: ["Discord AI"],
     github: "https://github.com/benjaminstrike",
     avatar: "/media/pfp/benjaminstrike.gif",
     sections: ["staff"],
@@ -98,7 +96,7 @@ export const users: StaffUser[] = [
   {
     name: "JVAV",
     roles: ["developer", "seniorhelper"],
-    tags: ["Legacy FAQ", "R6S Downloader"],
+    tags: ["Legacy FAQ", "Downloader"],
     github: "https://github.com/JOJOVAV",
     avatar: "/media/pfp/jvav.webp",
     sections: ["staff"],
@@ -122,10 +120,10 @@ export const users: StaffUser[] = [
     sections: ["staff"],
   },
   {
-    name: "Celestarr",
+    name: "Swerve2k",
     roles: ["helper"],
     github: "https://github.com/Swerve2k",
-    avatar: "/media/pfp/celestarr.webp",
+    avatar: "/media/pfp/swerve2k.webp",
     sections: ["staff"],
   },
   {
@@ -135,9 +133,9 @@ export const users: StaffUser[] = [
     sections: ["staff"],
   },
   {
-    name: "xanax",
+    name: "ryn",
     roles: ["helper"],
-    avatar: "/media/pfp/xanax.webp",
+    avatar: "/media/pfp/ryn.webp",
     sections: ["staff"],
   },
   {
@@ -173,7 +171,6 @@ export const users: StaffUser[] = [
   {
     name: "Puppetino",
     tags: ["FAQ", "Legacy FAQ", "Discord Bot"],
-    github: "https://github.com/Puppetino",
     avatar: "/media/pfp/puppetino.webp",
     sections: ["faqContributors"],
   },
