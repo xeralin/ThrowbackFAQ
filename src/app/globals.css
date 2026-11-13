@@ -34,7 +34,6 @@
   --color-notice-edge: #f0a500;
   --color-success: #6abf6a;
   --color-link: #5b9bd4;
-  --color-muted: #a2a4ba;
   --color-error-border: #3a0000;
   --color-error-bg: #0d0000;
   --color-error-bg-strong: #1a0000;
@@ -237,11 +236,6 @@
   }
 }
 
-[data-tone="muted"] {
-  --card-accent-border: #34343f;
-  --card-accent-glow: color-mix(in srgb, var(--color-muted) 13%, transparent);
-}
-
 @utility card-line-hover {
   &::after {
     content: "";
@@ -322,8 +316,7 @@
   .prose a code {
     color: inherit;
   }
-  .prose img,
-  .prose video {
+  .prose img {
     width: 100%;
     height: auto;
     user-select: none;
