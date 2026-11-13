@@ -2,6 +2,7 @@
 
 import {
   useEffect,
+  useEffectEvent,
   useRef,
   useState,
   useSyncExternalStore,
@@ -130,32 +131,27 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
   );
   const query =
     method === "downloader" && items.some((item) => item.method) ? "?jvav" : "";
-  const latest = useRef({ items, visible, platform, storedMethod });
-
-  useEffect(() => {
-    latest.current = { items, visible, platform, storedMethod };
+  const resolveHash = useEffectEvent(() => {
+    const target = window.location.hash.slice(1);
+    if (!target || visible.some((item) => item.id === target)) return;
+    const matches = items.filter((item) => item.id === target);
+    const hidden =
+      matches.find((item) => !item.method || item.method === storedMethod) ??
+      matches[0];
+    if (!hidden) return;
+    const needed =
+      hidden.platform ??
+      (hidden.method === "downloader" ? "windows" : platform);
+    if (needed !== platform) setPlatform(needed);
+    if (hidden.method) setMethod(hidden.method);
   });
 
   useEffect(() => {
     if (!hydrated) return;
-    function resolveHash() {
-      const { items, visible, platform, storedMethod } = latest.current;
-      const target = window.location.hash.slice(1);
-      if (!target || visible.some((item) => item.id === target)) return;
-      const matches = items.filter((item) => item.id === target);
-      const hidden =
-        matches.find((item) => !item.method || item.method === storedMethod) ??
-        matches[0];
-      if (!hidden) return;
-      const needed =
-        hidden.platform ??
-        (hidden.method === "downloader" ? "windows" : platform);
-      if (needed !== platform) setPlatform(needed);
-      if (hidden.method) setMethod(hidden.method);
-    }
-    queueMicrotask(resolveHash);
-    window.addEventListener("hashchange", resolveHash);
-    return () => window.removeEventListener("hashchange", resolveHash);
+    const onHash = () => resolveHash();
+    queueMicrotask(onHash);
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
   }, [hydrated]);
   return (
     <div className="faq-list">

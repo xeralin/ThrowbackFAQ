@@ -1,6 +1,5 @@
 type NavItem = { href: string; label: string };
 type NavSection = { label: string; items: NavItem[] };
-type Crumb = NavItem;
 
 export const navSections: NavSection[] = [
   {
@@ -35,14 +34,14 @@ export const navSections: NavSection[] = [
   },
 ];
 
-export const allRoutes: string[] = navSections.flatMap((section) =>
-  section.items.map((item) => item.href),
-);
+const navItems = navSections.flatMap((section) => section.items);
 
-const HOME: Crumb = { label: "FAQ", href: "/" };
+export const allRoutes = navItems.map((item) => item.href);
 
-const breadcrumbs: Record<string, Crumb[]> = Object.fromEntries(
-  navSections.flatMap((s) => s.items).map((i) => [i.href, [HOME, i]]),
+const HOME: NavItem = { label: "FAQ", href: "/" };
+
+const breadcrumbs: Record<string, NavItem[]> = Object.fromEntries(
+  navItems.map((item) => [item.href, [HOME, item]]),
 );
 
 export function normalizePath(path: string): string {
@@ -50,6 +49,6 @@ export function normalizePath(path: string): string {
   return trimmed === "" ? "/" : trimmed;
 }
 
-export function breadcrumbFor(path: string): Crumb[] {
+export function breadcrumbFor(path: string): NavItem[] {
   return breadcrumbs[normalizePath(path)] ?? [HOME];
 }
